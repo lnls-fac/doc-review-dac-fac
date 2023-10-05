@@ -41,7 +41,7 @@
 % This page includes the informations defined earlier including title, author/s, affiliation/s and the date
 \begin{frame}
   \titlepage
-  \href{http://tex.stackexchange.com/q/20800/5701}{\beamergotobutton{Link para o repo github desta apresentação}}
+  \href{https://github.com/lnls-fac/doc-review-dac-fac}{\beamergotobutton{Link para o repo github desta apresentação: https://github.com/lnls-fac/doc-review-dac-fac}}
 \end{frame}
 
 % Outline
@@ -57,118 +57,112 @@
 %	<content>
 %\end{frame}
 
+
 \section{Estudos de máquina - 25/09 Instabilidade CB}
 
 \begin{frame}{25/09 Instabilidade CB}
     \begin{itemize}
-		\item<1-> Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
-        \item<2-> Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
+		\item Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
+        \item Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{25/09 Instabilidade CB}
-	\begin{columns}
-		\column{.5\textwidth}
-        Text goes in first column.
-        
-        \column{.5\textwidth}
-        Text goes in second column
-	\end{columns}
-\end{frame}
 
-\section{Estudos de máquina - 02/10 Otimização LLRF da P7}
 
-\begin{frame}{02/10 Otimização LLRF da P7}
-	\input{tables/table1.tex}
-\end{frame}
+\section{Estudos de máquina - 02/10 Otimização LLRF da P7Cav}
 
-\begin{frame}{02/10 Otimização LLRF da P7}
-	\begin{figure}[H]
-		\centering
-        \includegraphics[width=.5\textwidth]{figures/figure1.png}
-        \caption{Caption for figure one.}
-        \label{fig:figure1}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{02/10 Otimização LLRF da P7}
-
-\begin{columns}
-
-\begin{column}{0.5\textwidth}
-	\begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{figures/figure1.png}
-        \caption{Caption for figure one.}
-        \label{fig:figure1}
-	\end{figure}
- \end{column}
-
- \begin{column}{0.5\textwidth}
-	\begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{figures/figure1.png}
-        \caption{Caption for figure two.}
-        \label{fig:figure1}
-	\end{figure}
- \end{column}
- 
-\end{columns}
-\end{frame}
-
-\begin{frame}{Slide with references}
-\begin{itemize}
-    \item<1->This is to reference a figure (Figure \ref{fig:figure1})\\
-    \item<2->This is to reference a table (Table \ref{tab:table1})\\
-    \item<3->This is to cite an article \cite{Ahmed2018a}\\
-    \item<4->This is to add an article to the references without mentioning in the text \nocite{Ahmed2018a}\\
-\end{itemize}
-\end{frame}
-
-\section{Estudos de máquina - 03/10 Instabilidade CB}
-
-\begin{frame}{Estudos de máquina - 25/09 Instabilidade CB}
+\begin{frame}{02/10 Otimização LLRF da P7Cav}
     \begin{itemize}
-		\item<1-> Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
-        \item<2-> Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
+		\item Reconfiguração de parâmetros PID do LLRF da P7Cav.
+	\end{itemize}
+	% \input{tables/table1.tex}
+\end{frame}
+
+
+% \begin{frame}{02/10 Otimização LLRF da P7Cav}
+% 	\begin{figure}[H]
+% 		\centering
+%         \includegraphics[width=.5\textwidth]{figures/figure1.png}
+%         \caption{Caption for figure one.}
+%         \label{fig:figure1}
+% 	\end{figure}
+% \end{frame}
+
+% \begin{frame}{02/10 Otimização LLRF da P7}
+
+% \begin{columns}
+
+% \begin{column}{0.5\textwidth}
+% 	\begin{figure}[H]
+% 		\centering
+%         \includegraphics[width=.9\textwidth]{figures/figure1.png}
+%         \caption{Caption for figure one.}
+%         \label{fig:figure1}
+% 	\end{figure}
+%  \end{column}
+
+%  \begin{column}{0.5\textwidth}
+% 	\begin{figure}[H]
+% 		\centering
+%         \includegraphics[width=.9\textwidth]{figures/figure1.png}
+%         \caption{Caption for figure two.}
+%         \label{fig:figure1}
+% 	\end{figure}
+%  \end{column}
+ 
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}{Slide with references}
+% \begin{itemize}
+%     \item<1->This is to reference a figure (Figure \ref{fig:figure1})\\
+%     \item<2->This is to reference a table (Table \ref{tab:table1})\\
+%     \item<3->This is to cite an article \cite{Ahmed2018a}\\
+%     \item<4->This is to add an article to the references without mentioning in the text \nocite{Ahmed2018a}\\
+% \end{itemize}
+% \end{frame}
+
+\section{Estudos de máquina - 03/10 Ajuste da função dispersão}
+
+\begin{frame}{03/10 Ajuste da função dispersão}
+    \begin{itemize}
+		\item Usando a matrix resposta $\delta \eta_y / \delta LK_s$ atuamos nos skew quads e ajustamos a função dispersão para a nominal (mínima).
+        \item Medimos acomplamento global $\sim$ 4.6\% e corrigimos com os botões de acoplamento tradicionais para $\sim$ 1.4\%.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Estudos de máquina - 02/10 Otimização LLRF da P7}
-	\begin{columns}
-		\column{.5\textwidth}
-        Text goes in first column.
+% \begin{frame}{Estudos de máquina - 25/09 Instabilidade CB}
+%     \begin{itemize}
+% 		\item<1-> Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
+%         \item<2-> Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
+% 	\end{itemize}
+% \end{frame}
+
+% \begin{frame}{Estudos de máquina - 02/10 Otimização LLRF da P7}
+% 	\begin{columns}
+% 		\column{.5\textwidth}
+%         Text goes in first column.
         
-        \column{.5\textwidth}
-        Text goes in second column
-	\end{columns}
-\end{frame}
+%         \column{.5\textwidth}
+%         Text goes in second column
+% 	\end{columns}
+% \end{frame}
 
 \section{Atividades - Calibração modelo RADIA do DELTA52}
 
 \begin{frame}{Calibração modelo RADIA do DELTA52}
     \begin{itemize}
-		\item<1-> Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
-        \item<2-> Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
+		\item A ideia é ter um modelo RADIA 3D do ID que explique as medidas de mapas de campo feitas com sensor Hall, que no caso do DELTA, só podem ser feitas no plano $y = 0$. Com este modelo calibrado podemos fazer RK para resolver a traj. 3D e obter os mapas de kicks transversais $x'(x_0, y_0)$ e $y'(x_0, y_0)$ para estudar o efeito do ID na ótica e abertura dinâmica.
+        \item Usando as medidas de mapas de campo com sensor Hall, calibramos o modelo RADIA do ID (sem magic finger)
 	\end{itemize}
-\end{frame}
-
-\begin{frame}{Calibração modelo RADIA do DELTA52}
-	\begin{columns}
-		\column{.5\textwidth}
-        Text goes in first column.
-        
-        \column{.5\textwidth}
-        Text goes in second column
-	\end{columns}
 \end{frame}
 
 \section{References}
 
 % Adding the option 'allowframebreaks' allows the contents of the slide to be expanded in more than one slide.
-\begin{frame}[allowframebreaks]{References}
-	\tiny\bibliography{references}
-	\bibliographystyle{apalike}
-\end{frame}
+% \begin{frame}[allowframebreaks]{References}
+% 	\tiny\bibliography{2023-10-06/references}
+% 	\bibliographystyle{apalike}
+% \end{frame}
 
 \end{document}
