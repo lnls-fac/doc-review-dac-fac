@@ -1,0 +1,174 @@
+% Latex template: mahmoud.s.fahmy@students.kasralainy.edu.eg
+% For more details: https://www.sharelatex.com/learn/Beamer
+
+\documentclass{beamer}					% Document class
+
+\usepackage[portuguese]{babel}				% Set language
+\usepackage[utf8x]{inputenc}			% Set encoding
+
+\mode<presentation>						% Set options
+{
+  \usetheme{default}					% Set theme
+  \usecolortheme{default} 				% Set colors
+  \usefonttheme{default}  				% Set font theme
+  \setbeamertemplate{caption}[numbered]	% Set caption to be numbered
+}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamercovered{transparent}
+
+% Uncomment this to have the outline at the beginning of each section highlighted.
+%\AtBeginSection[]
+%{
+%  \begin{frame}{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+\usepackage{graphicx}					% For including figures
+\usepackage{booktabs}					% For table rules
+\usepackage{hyperref}					% For cross-referencing
+
+\title{Revisão de Atividades da FAC}	% Presentation title
+%\author{Author One}								% Presentation author
+\institute{LNLS.DAC.FAC}					% Author affiliation
+\date{2023-09-25 -- 2023-10-06}									% Today's date	
+
+\begin{document}
+
+% Title page
+% This page includes the informations defined earlier including title, author/s, affiliation/s and the date
+\begin{frame}
+  \titlepage
+  \href{http://tex.stackexchange.com/q/20800/5701}{\beamergotobutton{Link para o repo github desta apresentação}}
+\end{frame}
+
+% Outline
+% This page includes the outline (Table of content) of the presentation. All sections and subsections will appear in the outline by default.
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% The following is the most frequently used slide types in beamer
+% The slide structure is as follows:
+%
+%\begin{frame}{<slide-title>}
+%	<content>
+%\end{frame}
+
+\section{Estudos de máquina - 25/09 Instabilidade CB}
+
+\begin{frame}{25/09 Instabilidade CB}
+    \begin{itemize}
+		\item<1-> Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
+        \item<2-> Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{25/09 Instabilidade CB}
+	\begin{columns}
+		\column{.5\textwidth}
+        Text goes in first column.
+        
+        \column{.5\textwidth}
+        Text goes in second column
+	\end{columns}
+\end{frame}
+
+\section{Estudos de máquina - 02/10 Otimização LLRF da P7}
+
+\begin{frame}{02/10 Otimização LLRF da P7}
+	\input{tables/table1.tex}
+\end{frame}
+
+\begin{frame}{02/10 Otimização LLRF da P7}
+	\begin{figure}[H]
+		\centering
+        \includegraphics[width=.5\textwidth]{figures/figure1.png}
+        \caption{Caption for figure one.}
+        \label{fig:figure1}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{02/10 Otimização LLRF da P7}
+
+\begin{columns}
+
+\begin{column}{0.5\textwidth}
+	\begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{figures/figure1.png}
+        \caption{Caption for figure one.}
+        \label{fig:figure1}
+	\end{figure}
+ \end{column}
+
+ \begin{column}{0.5\textwidth}
+	\begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{figures/figure1.png}
+        \caption{Caption for figure two.}
+        \label{fig:figure1}
+	\end{figure}
+ \end{column}
+ 
+\end{columns}
+\end{frame}
+
+\begin{frame}{Slide with references}
+\begin{itemize}
+    \item<1->This is to reference a figure (Figure \ref{fig:figure1})\\
+    \item<2->This is to reference a table (Table \ref{tab:table1})\\
+    \item<3->This is to cite an article \cite{Ahmed2018a}\\
+    \item<4->This is to add an article to the references without mentioning in the text \nocite{Ahmed2018a}\\
+\end{itemize}
+\end{frame}
+
+\section{Estudos de máquina - 03/10 Instabilidade CB}
+
+\begin{frame}{Estudos de máquina - 25/09 Instabilidade CB}
+    \begin{itemize}
+		\item<1-> Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
+        \item<2-> Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Estudos de máquina - 02/10 Otimização LLRF da P7}
+	\begin{columns}
+		\column{.5\textwidth}
+        Text goes in first column.
+        
+        \column{.5\textwidth}
+        Text goes in second column
+	\end{columns}
+\end{frame}
+
+\section{Atividades - Calibração modelo RADIA do DELTA52}
+
+\begin{frame}{Calibração modelo RADIA do DELTA52}
+    \begin{itemize}
+		\item<1-> Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
+        \item<2-> Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Calibração modelo RADIA do DELTA52}
+	\begin{columns}
+		\column{.5\textwidth}
+        Text goes in first column.
+        
+        \column{.5\textwidth}
+        Text goes in second column
+	\end{columns}
+\end{frame}
+
+\section{References}
+
+% Adding the option 'allowframebreaks' allows the contents of the slide to be expanded in more than one slide.
+\begin{frame}[allowframebreaks]{References}
+	\tiny\bibliography{references}
+	\bibliographystyle{apalike}
+\end{frame}
+
+\end{document}
