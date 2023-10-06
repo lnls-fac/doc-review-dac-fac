@@ -33,7 +33,7 @@
 \title{Revisão de Atividades da FAC}	% Presentation title
 %\author{Author One}								% Presentation author
 \institute{LNLS.DAC.FAC}					% Author affiliation
-\date{2023-09-25 -- 2023-10-06}									% Today's date	
+\date{2023-09-22 -- 2023-10-06}									% Today's date	
 
 \begin{document}
 
@@ -42,6 +42,9 @@
 \begin{frame}
   \titlepage
   \href{https://github.com/lnls-fac/doc-review-dac-fac}{\beamergotobutton{Link para o repo github desta apresentação: https://github.com/lnls-fac/doc-review-dac-fac}}
+  \href{https://www.overleaf.com/read/sbdjxtzfchrm}{\beamergotobutton{Link para o projeto overleaf destas notas}}
+  
+  
 \end{frame}
 
 % Outline
@@ -58,95 +61,169 @@
 %\end{frame}
 
 
-\section{Estudos de máquina - 25/09 Instabilidade CB}
+\section{Estudos de máquina - 25/09 Instabilidade longitudinal CB}
 
-\begin{frame}{25/09 Instabilidade CB}
+
+\begin{frame}{25/09 Instabilidade longitudinal CB}
+
     \begin{itemize}
-		\item Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
-        \item Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
+		\item Usamos este turno de experimento para entender a questão da instabilidade longitudianl após a troca de canal de sinal no LLRF.
+	\end{itemize}
+
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{figures/long-osc-before-correction.png}
+        \caption{Longitudinal Oscillations (before correction)}
+        \label{fig:figure1}
+    \end{figure}
+    
+\end{frame}
+
+
+
+\begin{frame}{25/09 Instabilidade longitudinal CB}
+    \begin{itemize}
+        \item maior oscilação longitudinal no feixe após troca de canal de sinal no LLRF. além disto com ganho diferente do canal a tensão de referência que gera a mesma tensão de aceleração: 308 mV $\rightarrow$ 506 mV para gerar $V_\mathrm{gap} \approx 1.7$ MV.
+        \item os parâmetros de PI foram reduzidos em $\sim$ 30\% para compensar a nova tensão de referência 30\% maior. Um pequeno aumento na tensão de gap foi feito para afastar a freq. síncrotron para longe de múltiplos de ``64'' Hz.
+        \item procedimento de reconfiguração dos parâmetros do sistema bunch-by-bunch (BbB), participação do grupo de RF
 	\end{itemize}
 \end{frame}
 
 
+
+\begin{frame}{25/09 Instabilidade longitudinal CB}
+
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{figures/long-osc-after-correction.png}
+        \caption{Longitudinal Oscillations (after correction)}
+        \label{fig:figure1}
+    \end{figure}
+    
+\end{frame}
 
 \section{Estudos de máquina - 02/10 Otimização LLRF da P7Cav}
 
 \begin{frame}{02/10 Otimização LLRF da P7Cav}
+
     \begin{itemize}
-		\item Reconfiguração de parâmetros PID do LLRF da P7Cav.
+        \item Ajuste phase shifter $\to$ aumento margem de fase
+		\item Reconfiguração de parâmetros PI do LLRF da P7Cav: \newline 
+        $K_p: 2 \to 5$, $K_i: 21 \to 5000$
 	\end{itemize}
-	% \input{tables/table1.tex}
+
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{figures/llrf-energy-oscillations.png}
+        \caption{Beam oscillation - PSD of energy}
+        \label{fig:figure1}
+    \end{figure}
+
 \end{frame}
 
 
-% \begin{frame}{02/10 Otimização LLRF da P7Cav}
-% 	\begin{figure}[H]
-% 		\centering
-%         \includegraphics[width=.5\textwidth]{figures/figure1.png}
-%         \caption{Caption for figure one.}
-%         \label{fig:figure1}
-% 	\end{figure}
-% \end{frame}
 
-% \begin{frame}{02/10 Otimização LLRF da P7}
+\begin{frame}{02/10 Otimização LLRF da P7Cav}
 
-% \begin{columns}
-
-% \begin{column}{0.5\textwidth}
-% 	\begin{figure}[H]
-% 		\centering
-%         \includegraphics[width=.9\textwidth]{figures/figure1.png}
-%         \caption{Caption for figure one.}
-%         \label{fig:figure1}
-% 	\end{figure}
-%  \end{column}
-
-%  \begin{column}{0.5\textwidth}
-% 	\begin{figure}[H]
-% 		\centering
-%         \includegraphics[width=.9\textwidth]{figures/figure1.png}
-%         \caption{Caption for figure two.}
-%         \label{fig:figure1}
-% 	\end{figure}
-%  \end{column}
+\begin{itemize}
+		\item Redução $\sim$ 8x
+\end{itemize}
  
-% \end{columns}
-% \end{frame}
+\begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{figures/llrf-integrated-energy-oscillations.png}
+        \caption{Beam oscillation - Integrated PSD of energy}
+        \label{fig:figure1}
+\end{figure}
 
-% \begin{frame}{Slide with references}
-% \begin{itemize}
-%     \item<1->This is to reference a figure (Figure \ref{fig:figure1})\\
-%     \item<2->This is to reference a table (Table \ref{tab:table1})\\
-%     \item<3->This is to cite an article \cite{Ahmed2018a}\\
-%     \item<4->This is to add an article to the references without mentioning in the text \nocite{Ahmed2018a}\\
-% \end{itemize}
-% \end{frame}
+\end{frame}
+
+
+
+\begin{frame}{02/10 Otimização LLRF da P7Cav}
+
+\begin{itemize}
+		\item Redução $\sim$ 10x
+\end{itemize}
+
+\begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{figures/llrf-phase-oscillations.png}
+        \caption{Beam oscillation - Phase}
+        \label{fig:figure1}
+\end{figure}
+
+\end{frame}
+ 
+
 
 \section{Estudos de máquina - 03/10 Ajuste da função dispersão}
 
 \begin{frame}{03/10 Ajuste da função dispersão}
     \begin{itemize}
-		\item Usando a matrix resposta $\delta \eta_y / \delta LK_s$ atuamos nos skew quads e ajustamos a função dispersão para a nominal (mínima).
-        \item Medimos acomplamento global $\sim$ 4.6\% e corrigimos com os botões de acoplamento tradicionais para $\sim$ 1.4\%.
+		\item Usando a matrix resposta $\frac{\Delta \eta_y}{\Delta K_sL}$ do modelo nominal atuamos nos skew quads e minimizamos a função dispersão vertical. Redução $\sim$ 5x de $\eta_y$ rms.
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.7\textwidth]{2023-10-06/figures/vertical_dispersion_correction.png}
+        % \caption{Dispersão vertical antes e após correção.}
+        \label{fig:figure1}
+    \end{figure}
+    
+        \item Medimos acoplamento global $\sim$ 2.6\% e corrigimos com os botões de acoplamento tradicionais para $\sim$ 1.4\% (mínimo possível nessa config.). Ref. config. opera com 1\%.
+        \item Tamanho vertical e ângulo maiores na CARCARA com essa config. continuação do estudo em 17/10...
 	\end{itemize}
 \end{frame}
 
-% \begin{frame}{Estudos de máquina - 25/09 Instabilidade CB}
-%     \begin{itemize}
-% 		\item<1-> Questão: troca de eletrônica LLRF introduziu uma maior oscilação longitudinal.
-%         \item<2-> Solução: mudança da freq. síncrotron para long de múltiplos de "64" Hz, através de mudança da tensão de aceleração da P7.
-% 	\end{itemize}
-% \end{frame}
 
-% \begin{frame}{Estudos de máquina - 02/10 Otimização LLRF da P7}
-% 	\begin{columns}
-% 		\column{.5\textwidth}
-%         Text goes in first column.
-        
-%         \column{.5\textwidth}
-%         Text goes in second column
-% 	\end{columns}
-% \end{frame}
+
+\section{Atividades - Sinal em 89 Hz observado na Carnaúba 06SB}
+
+\begin{frame}{Sinal em $\sim$ 89 Hz observado na Carnaúba 06SB}
+    
+    \begin{itemize}
+		\item Sinais de corrente ``ai0'' e ``ai1'': pico recente em $\sim$ 89Hz do espectro, maior que o pico em 60Hz, que já existia.
+        \item Amostragem em 2kHz
+	\end{itemize}
+
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.6\textwidth]{figures/carnauba-89hz-signal.png}
+        \caption{PSD do sinal do feixe de fótons na Carnaúba}
+        \label{fig:figure1}
+    \end{figure}
+    
+\end{frame}
+
+
+
+\begin{frame}{Estabilidade do feixe de elétrons no centro do trecho 06SB}
+    
+    \begin{itemize}
+		\item Aquisição de órbita BPMs na taxa FOFB (45kHz)
+        \item Existe um pico em $\sim$ 89Hz na posição $x$ mas a amplitude é 20 nm rms, 7x menor que pico em 60 Hz com 150 nm rms.
+	\end{itemize}
+
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.7\textwidth]{2023-10-06/figures/beam_stability_carnauba_compare_zoom_freqs.png}
+        \caption{PSD de posição e ângulo $(x, y)$ no centro do trecho 06SB}
+        \label{fig:figure1}
+    \end{figure}
+    
+\end{frame}
+
+
+
+\begin{frame}{Estabilidade do feixe de elétrons no centro do trecho 06SB}
+    
+    \begin{itemize}
+		\item Mais medidas deste tipo serão realizadas na Carnaúba, em princípio nos dias 24 e 25 de Outubro. 
+        \item Planejamos fazer aquisições trigueradas da órbita concomitantemente para análises.
+	\end{itemize}
+    
+\end{frame}
+
+
 
 \section{Atividades - Calibração modelo RADIA do DELTA52}
 
@@ -156,6 +233,31 @@
         \item Usando as medidas de mapas de campo com sensor Hall, calibramos o modelo RADIA do ID (sem magic finger)
 	\end{itemize}
 \end{frame}
+
+\begin{frame}{Calibração modelo RADIA do DELTA52}
+\begin{itemize}
+        \item Fitting de campo de um modelo DELTA52 com magnetizações aleatórias.
+	\end{itemize}
+\begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{figures/mag_fitting.png}
+        \caption{Comparação entre magnetizações encontradas pelo algoritmo e magnetizações objetivo.}
+        \label{fig:mag_fitting}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Calibração modelo RADIA do DELTA52}
+\begin{itemize}
+        \item Fitting de medidas de campo. Redução no resíduo por um fator 5.
+	\end{itemize}
+\begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{figures/field_fitting.png}
+        \caption{Comparação entre campo medido pelo sensor hall e campo fornecido pelo modelo RADIA.}
+        \label{fig:field_fitting}
+    \end{figure}
+\end{frame}
+
 
 \section{References}
 
