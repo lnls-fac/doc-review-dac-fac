@@ -1,14 +1,13 @@
 % Latex template: mahmoud.s.fahmy@students.kasralainy.edu.eg
 % For more details: https://www.sharelatex.com/learn/Beamer
 
-\documentclass{beamer}					% Document class
+\documentclass{beamer}					  % Document class
 
-\usepackage[portuguese]{babel}				% Set language
-\usepackage[utf8x]{inputenc}			% Set encoding
+\usepackage[portuguese]{babel}			  % Set language
+\usepackage[utf8x]{inputenc}			  % Set encoding
 
-\mode<presentation>						% Set options
-{
-  \usetheme{default}					% Set theme
+\mode<presentation> {					  % Set options
+  \usetheme{default}					    % Set theme
   \usecolortheme{default} 				% Set colors
   \usefonttheme{default}  				% Set font theme
   \setbeamertemplate{caption}[numbered]	% Set caption to be numbered
@@ -29,242 +28,265 @@
 \usepackage{graphicx}					% For including figures
 \usepackage{booktabs}					% For table rules
 \usepackage{hyperref}					% For cross-referencing
+\usepackage{caption}                    % Allows more control over captions in figs and tables
 
 \title{Revisão de Atividades da FAC}	% Presentation title
-%\author{Author One}								% Presentation author
-\institute{LNLS.DAC.FAC}					% Author affiliation
-\date{2023-10-06 -- 2023-10-27}									% Today's date	
+%\author{Author One}					% Presentation author
+\institute{LNLS.DAC.FAC}				% Author affiliation
+\date{2023-10-06 -- 2023-10-27}			% Today's date	
+
 
 \begin{document}
 
-% Title page
-% This page includes the informations defined earlier including title, author/s, affiliation/s and the date
+
+
 \begin{frame}
   \titlepage
   \href{https://github.com/lnls-fac/doc-review-dac-fac}{\beamergotobutton{Link para o repo github desta apresentação: https://github.com/lnls-fac/doc-review-dac-fac}}
   \href{https://www.overleaf.com/read/sbdjxtzfchrm}{\beamergotobutton{Link para o projeto overleaf destas notas}}
-  
-  
 \end{frame}
 
-% Outline
-% This page includes the outline (Table of content) of the presentation. All sections and subsections will appear in the outline by default.
 \begin{frame}{Outline}
   \tableofcontents
 \end{frame}
 
-% The following is the most frequently used slide types in beamer
-% The slide structure is as follows:
-%
-%\begin{frame}{<slide-title>}
-%	<content>
-%\end{frame}
 
+\section{Atividades - Campo DELTA52 e Calibração modelo RADIA}
 
-\section{Estudos de máquina - 25/09 Instabilidade longitudinal CB}
-
-
-\begin{frame}{25/09 Instabilidade longitudinal CB}
-
+\begin{frame}{Calibração do Modelo DELTA52: Motivação}
     \begin{itemize}
-		\item Usamos este turno de experimento para entender a questão da instabilidade longitudianl após a troca de canal de sinal no LLRF.
-	\end{itemize}
-
-    \begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{figures/long-osc-before-correction.png}
-        \caption{Longitudinal Oscillations (before correction)}
-        \label{fig:figure1}
-    \end{figure}
-    
-\end{frame}
-
-
-
-\begin{frame}{25/09 Instabilidade longitudinal CB}
-    \begin{itemize}
-        \item maior oscilação longitudinal no feixe após troca de canal de sinal no LLRF. além disto com ganho diferente do canal a tensão de referência que gera a mesma tensão de aceleração: 308 mV $\rightarrow$ 506 mV para gerar $V_\mathrm{gap} \approx 1.7$ MV.
-        \item os parâmetros de PI foram reduzidos em $\sim$ 30\% para compensar a nova tensão de referência 30\% maior. Um pequeno aumento na tensão de gap foi feito para afastar a freq. síncrotron para longe de múltiplos de ``64'' Hz.
-        \item procedimento de reconfiguração dos parâmetros do sistema bunch-by-bunch (BbB), participação do grupo de RF
+		\item A ideia é ter um modelo RADIA 3D do ID que explique as medidas de mapas de campo feitas com sensor Hall, que no caso do DELTA, só podem ser feitas no plano $y = 0$. Com este modelo calibrado podemos fazer RK para resolver a traj. 3D e obter os mapas de kicks transversais $x'(x_0, y_0)$ e $y'(x_0, y_0)$ para estudar o efeito do ID na ótica e abertura dinâmica.
+        \item Usando as medidas de mapas de campo com sensor Hall, calibramos o modelo RADIA do ID
+        \item Trabalhando para melhorar a calibração do modelo...
 	\end{itemize}
 \end{frame}
 
-
-
-\begin{frame}{25/09 Instabilidade longitudinal CB}
-
-    \begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{figures/long-osc-after-correction.png}
-        \caption{Longitudinal Oscillations (after correction)}
-        \label{fig:figure1}
-    \end{figure}
-    
-\end{frame}
-
-\section{Participação no estudo de máquina - 02/10 Otimização LLRF da P7Cav}
-
-\begin{frame}{02/10 Otimização LLRF da P7Cav}
-
-    \begin{itemize}
-        \item Ajuste phase shifter $\to$ aumento margem de fase
-		\item Reconfiguração de parâmetros PI do LLRF da P7Cav: \newline 
-        $K_p: 2 \to 5$, $K_i: 21 \to 5000$
-	\end{itemize}
-
-    \begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{figures/llrf-energy-oscillations.png}
-        \caption{Beam oscillation - PSD of energy}
-        \label{fig:figure1}
-    \end{figure}
-
-\end{frame}
-
-
-
-\begin{frame}{02/10 Otimização LLRF da P7Cav}
-
+\begin{frame}{Campo DELTA52 e Calibração do modelo}
 \begin{itemize}
-		\item Redução $\sim$ 8x
-\end{itemize}
- 
+        \item Campo integrado: modelo calibrado x medidas (antes)
+	\end{itemize}
 \begin{figure}[H]
 		\centering
-        \includegraphics[width=.9\textwidth]{figures/llrf-integrated-energy-oscillations.png}
-        \caption{Beam oscillation - Integrated PSD of energy}
-        \label{fig:figure1}
-\end{figure}
-
+        \includegraphics[width=.9\textwidth]{2023-10-27/figures/field_integrals_fitting.png}
+        \label{fig:integral_fitting}
+    \end{figure}
 \end{frame}
 
+\begin{frame}{Calibração do modelo}
+    \begin{itemize}
+            \item Melhorias no cálculo do jacobiano (alinhamento de grids).
+    \end{itemize}
+    \begin{figure}[H]
+    		\centering
+            \includegraphics[width=.7\textwidth]{2023-10-27/figures/New_jacobian_test.png}
+            \caption{Variações de campo previstas pelos jacobianos e calculadas pelo modelo RADIA.}
+            \label{fig:jac_comparison}
+    \end{figure}
+    \begin{itemize}
+            \item Fitting de erros de posição na calibração (trabalhando...)
+    \end{itemize}
+\end{frame}
 
-
-\begin{frame}{02/10 Otimização LLRF da P7Cav}
-
+\begin{frame}{DELTA52 - Impacto na máquina}
 \begin{itemize}
-		\item Redução $\sim$ 10x
-\end{itemize}
-
+        \item Simulações usando modelo RADIA calibrado e medidas de campo no plano.
+	\end{itemize}
 \begin{figure}[H]
 		\centering
-        \includegraphics[width=.9\textwidth]{figures/llrf-phase-oscillations.png}
-        \caption{Beam oscillation - Phase}
-        \label{fig:figure1}
-\end{figure}
-
+        \includegraphics[width=.8\textwidth]{2023-10-27/figures/dynapt_delta.png}
+        \caption{Impacto do Delta52 com magic fingers na abertura dinâmica.}
+        \label{fig:dynapt}
+    \end{figure}
 \end{frame}
- 
+
+\begin{frame}{DELTA52 - Medidas de integrais (setembro)}
+\begin{itemize}
+        \item Medidas de integrais de campo no eixo central do ID com magic fingers.
+	\end{itemize}
+\begin{figure}[H]
+		\centering
+        \includegraphics[width=1\textwidth]{2023-10-27/figures/field_integrals_config.png}
+        \caption{Integrais de campo normalizadas pela rigidez magnética para cada configuração do Delta52.}
+        \label{fig:integrals_config}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{DELTA52 - Medidas de integrais (outubro)}
+\begin{itemize}
+        \item Medidas de integrais de campo no eixo central do ID com magic fingers.
+	\end{itemize}
+\begin{figure}[H]
+		\centering
+        \includegraphics[width=1\textwidth]{2023-10-27/figures/field_integrals_config_new.png}
+        \caption{Integrais de campo normalizadas pela rigidez magnética para cada configuração do Delta52.}
+        \label{fig:integrals_config_new}
+    \end{figure}
+\end{frame}
 
 
-\section{Estudos de máquina - 03/10 Ajuste da função dispersão}
 
-\begin{frame}{03/10 Ajuste da função dispersão}
+\section{Atividades - Estudo de colimador para IDs}
+
+\begin{frame}{Estudo de colimador para IDs}
+\begin{itemize}
+        \item Tracking do processo de perda por espalhamento Touschek (abertura física nominal).
+	\end{itemize}
+\begin{figure}[H]
+		\centering
+        \includegraphics[width=.75\textwidth]{2023-10-27/figures/scat_vc_lost.png}
+        % \caption{Comparação entre integrais de campo medidas e fornecidas pelo modelo calibrado.}
+        \label{fig:scat_loss}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Estudo de colimador para IDs}
+    \begin{figure}[H]
+    		\centering
+            \includegraphics[width=.9\textwidth]{2023-10-27/figures/lossrate_vs_lostpos.png}
+            % \caption{Comparação entre integrais de campo medidas e fornecidas pelo modelo calibrado.}
+            \label{fig:scat_loss}
+    \end{figure}
+\end{frame}
+
+
+
+\section{Estudos de máquina - 09/10 Scrapers}
+
+\begin{frame}{09/10 Scrapers}
     \begin{itemize}
-		\item Usando a matrix resposta $\frac{\Delta \eta_y}{\Delta K_sL}$ do modelo nominal atuamos nos skew quads e minimizamos a função dispersão vertical. Redução $\sim$ 5x de $\eta_y$ rms.
+		\item Uso do scraper para testar a ideia de colimadores de proteção para os IDs. 
+        \item Levantamos a relação entre eficiência de injeção e redução da aceitância física definida pelas fendas do scraper
+	\end{itemize}
     \begin{figure}[H]
 		\centering
-        \includegraphics[width=.7\textwidth]{2023-10-06/figures/vertical_dispersion_correction.png}
+        \includegraphics[width=.7\textwidth]{2023-10-27/figures/injeff-vs-vscrap.png}
+        \label{fig:vgap}
+    \end{figure}
+\end{frame}
+
+
+
+\section{Estudos de máquina - 09/10 Calibração VGap}
+
+\begin{frame}{09/10 Calibração VGap}
+    \begin{itemize}
+		\item Continuação da medida frequência síncrotron vs. tensão de gap. Campos transversais dos IDs no mínimo e máximo (APUs, EPU e Wiggler)
+        \item IDs aumentam energia perdida por volta em 28keV (+6\%)
+	\end{itemize}
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.7\textwidth]{2023-10-27/figures/sync_freq_vs_gap_voltage_ids_variation.png}
+        % \caption{}
+        \label{fig:vgap}
+    \end{figure}
+\end{frame}
+
+
+
+\section{Estudos de máquina - 16/10 Matriz Resposta AC}
+
+\begin{frame}{16/10 Matriz Resposta AC}
+    \scriptsize{
+    \begin{itemize}
+        \item Script compatibilizado com mudanças recentes nas classes de aquisição de BPMs e criação de métodos automáticos de checagem da validade dos dados medidos;
+        \item Mais corretoras atuando por aquisição, medidas mais rápidas (recorde de $\sim30$ segundos)
+        \item Novo procedimento de medida para coluna da RF: modulação de fase;
+        \item Teste de repetibilidade da medida sob diferentes valores dos parâmetros do script:
+	\end{itemize}}
+     \begin{figure}[H]
+		\centering
+        \includegraphics[width=.9\textwidth]{2023-10-27/figures/meas_repetability.png}
+        \caption*{{\tiny Repetibilidade de cinco medidas para várias configurações diferentes de aquisição. A repetibilidade foi definida como desvio padrão médio de cada coluna divido pelo rms de cada coluna da matriz média.}}
+        \label{fig:figure1}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{16/10 Matriz Resposta AC}
+    \begin{itemize}
+        \item Estudos sobre os ajustes dos sinais dos coeficientes dos termos fora da diagonal;
+	\end{itemize}
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.48\textwidth]{2023-10-27/figures/fitted_freqs.png}
+        \includegraphics[width=.48\textwidth]{2023-10-27/figures/phases_vs_amplitudes.png}
+        \caption*{{\footnotesize Esquerda: DFT de um BPM, mostrando as amplitudes fitadas. Direita: Phases fitadas versus amplitudes fitadas. Idealmente todas as fases deveriam ser 0 ou 1 e -1, mas para termos com pequenas amplitudes nota-se uma indeterminação da fase. Estamos estudando meios de ter mais certeza sobre esses termos}}
+        \label{fig:figure1}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{16/10 Matriz Resposta AC}
+    \begin{itemize}
+        \item correção de fatores de escala (figura)
+	\end{itemize}
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.7\textwidth]{2023-10-27/figures/scale_factors.pdf}
+        \caption*{{\footnotesize Fatores de escala (razão entre std de cols ORM DC e std de cols ORM AC)}}
+        \label{fig:figure1}
+    \end{figure}
+\end{frame}
+
+
+
+\section{Estudos de máquina - 17/10 Ajuste da função dispersão}
+
+\begin{frame}{17/10 Ajuste da função dispersão}
+    \begin{itemize}
+		\item Correção de $\eta_y$ por desvio de órbita (vertical) nos sextupolos é equivalente a corrigir usando bobinas de quadrupolo skews nestes sextupolos.
+    \begin{figure}[H]
+		\centering
+        \includegraphics[width=.7\textwidth]{2023-10-27/figures/Orbit_Y_Offset_QS_versus_CV 1}
         % \caption{Dispersão vertical antes e após correção.}
         \label{fig:figure1}
     \end{figure}
-    
-        \item Medimos acoplamento global $\sim$ 2.6\% e corrigimos com os botões de acoplamento tradicionais para $\sim$ 1.4\% (mínimo possível nessa config.). Ref. config. opera com 1\%.
-        \item Tamanho vertical e ângulo maiores na CARCARA com essa config. continuação do estudo em 17/10...
 	\end{itemize}
 \end{frame}
 
-
-
-\section{Atividades - Sinal em 89 Hz observado na Carnaúba 06SB}
-
-\begin{frame}{Sinal em $\sim$ 89 Hz observado na Carnaúba 06SB}
-    
+\begin{frame}{17/10 Ajuste da função dispersão}
     \begin{itemize}
-		\item Sinais de corrente ``ai0'' e ``ai1'': pico recente em $\sim$ 89Hz do espectro, maior que o pico em 60Hz, que já existia.
-        \item Amostragem em 2kHz
-	\end{itemize}
-
+        \item Fizemos correção de $\eta_y$ com quad. skew dos sextupolos cromáticos (60 sgvs da matriz total).
+        \item Redução de um fator $\sim$~8 no pico-a-pico de $\eta_y$ residual
     \begin{figure}[H]
 		\centering
-        \includegraphics[width=.6\textwidth]{figures/carnauba-89hz-signal.png}
-        \caption{PSD do sinal do feixe de fótons na Carnaúba}
+        \includegraphics[width=0.92\textwidth]{2023-10-27/figures/Vertical_dispersion_correction_with_CV_and_QS_methods_day17 1}
+        % \caption{Dispersão vertical antes e após correção.}
         \label{fig:figure1}
     \end{figure}
-    
+	\end{itemize}
 \end{frame}
 
-
-
-\begin{frame}{Estabilidade do feixe de elétrons no centro do trecho 06SB}
-    
+\begin{frame}{17/10 Ajuste da função dispersão}
     \begin{itemize}
-		\item Aquisição de órbita BPMs na taxa FOFB (45kHz)
-        \item Existe um pico em $\sim$ 89Hz na posição $x$ mas a amplitude é 20 nm rms, 7x menor que pico em 60 Hz com 150 nm rms.
-	\end{itemize}
-
+        \item Após a correção o acoplamento aumentou para algo em torno de 2\%.
+        \item Corrigimos acoplamento na respmat (medida AC) usando como botões LOCO os skews acromáticos. Acoplamento pelo modelo calibrado: $\sim$ 0.2\%.
+        \item Controlamos o acoplamento usando skews não dispersivos (padrão) observando o tamanho vertical na CAX. O ângulo aumentou de 0° para 4°.
     \begin{figure}[H]
 		\centering
-        \includegraphics[width=.7\textwidth]{2023-10-06/figures/beam_stability_carnauba_compare_zoom_freqs.png}
-        \caption{PSD de posição e ângulo $(x, y)$ no centro do trecho 06SB}
+        \includegraphics[width=.9\textwidth]{2023-10-27/figures/beam_view 1}
         \label{fig:figure1}
     \end{figure}
-    
+	\end{itemize}
 \end{frame}
 
 
 
-\begin{frame}{Estabilidade do feixe de elétrons no centro do trecho 06SB}
-    
+\section{Estudos de máquina - 23/10 Estudos com a Carnaúba}
+
+\begin{frame}{23/10 Estudos com a Carnaúba}
     \begin{itemize}
-		\item Mais medidas deste tipo serão realizadas na Carnaúba, em princípio nos dias 24 e 25 de Outubro. 
-        \item Planejamos fazer aquisições trigueradas da órbita concomitantemente para análises.
-	\end{itemize}
-    
-\end{frame}
-
-
-
-\section{Atividades - Calibração modelo RADIA do DELTA52}
-
-\begin{frame}{Calibração modelo RADIA do DELTA52}
-    \begin{itemize}
-		\item A ideia é ter um modelo RADIA 3D do ID que explique as medidas de mapas de campo feitas com sensor Hall, que no caso do DELTA, só podem ser feitas no plano $y = 0$. Com este modelo calibrado podemos fazer RK para resolver a traj. 3D e obter os mapas de kicks transversais $x'(x_0, y_0)$ e $y'(x_0, y_0)$ para estudar o efeito do ID na ótica e abertura dinâmica.
-        \item Usando as medidas de mapas de campo com sensor Hall, calibramos o modelo RADIA do ID (sem magic finger)
+        \item Medidas simultâneas com feixe de elétrons na sala de controle e feixe de fótons na linha de luz
+        \item Medidas na linha feitas com taxas de aquisição diferentes (2kHz e 2.5kHz), apenas algumas frequências no espectro mudaram, nenhuma das frequências relevantes foi afetada
+        \item Medidas com FOFB on e off. 60Hz é atenuado por fator 10 pelo FOFB, no anel e na linha. FOFB também atenua bem 15Hz, perceptível na linha. FOFB off + rampa ligada tem bastante efeito na linha, múltiplos de 2Hz.
+        \item Outras frequências com amplitude grande, 54Hz, 89Hz, (...) não são afetadas pelo FOFB. Indicativo de ser devido ao espelho
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Calibração modelo RADIA do DELTA52}
-\begin{itemize}
-        \item Fitting de campo de um modelo DELTA52 com magnetizações aleatórias.
-	\end{itemize}
-\begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{figures/mag_fitting.png}
-        \caption{Comparação entre magnetizações encontradas pelo algoritmo e magnetizações objetivo.}
-        \label{fig:mag_fitting}
-    \end{figure}
-\end{frame}
 
-\begin{frame}{Calibração modelo RADIA do DELTA52}
-\begin{itemize}
-        \item Fitting de medidas de campo. Redução no resíduo por um fator 7: de $\sim$ 291 G para $\sim$ 42 G (rms)
-	\end{itemize}
-\begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{figures/field_fitting.png}
-        \caption{Comparação entre campo medido pelo sensor hall e campo fornecido pelo modelo RADIA.}
-        \label{fig:field_fitting}
-    \end{figure}
-\end{frame}
+
 
 
 \section{References}
 
-% Adding the option 'allowframebreaks' allows the contents of the slide to be expanded in more than one slide.
-% \begin{frame}[allowframebreaks]{References}
-% 	\tiny\bibliography{2023-10-06/references}
-% 	\bibliographystyle{apalike}
-% \end{frame}
+
 
 \end{document}
