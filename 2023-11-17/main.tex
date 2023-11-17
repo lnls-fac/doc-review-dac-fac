@@ -51,242 +51,181 @@
 \end{frame}
 
 
-\section{Atividades - Campo DELTA52 e Calibração modelo RADIA}
+\section{Recuperação de Máquina - 10-16/11}
 
-\begin{frame}{Calibração do Modelo DELTA52: Motivação}
-    \begin{itemize}
-		\item A ideia é ter um modelo RADIA 3D do ID que explique as medidas de mapas de campo feitas com sensor Hall, que no caso do DELTA, só podem ser feitas no plano $y = 0$. Com este modelo calibrado podemos fazer RK para resolver a traj. 3D e obter os mapas de kicks transversais $x'(x_0, y_0)$ e $y'(x_0, y_0)$ para estudar o efeito do ID na ótica e abertura dinâmica.
-        \item Usando as medidas de mapas de campo com sensor Hall, calibramos o modelo RADIA do ID
-        \item Trabalhando para melhorar a calibração do modelo...
-	\end{itemize}
+\begin{frame}{10-13/11 Recuperação de Máquina}
+    \begin{minipage}{0.4\textwidth}
+        \scriptsize{
+        \begin{itemize}
+    		\item 10/11 (sexta) - subsistemas ligados, sem FOFB. Injeção de 100 mA, BBA em baixa corrente.
+            \item 11/11 (sábado) - algumas queda de feixe por RF na madrugada, falha Regatron de sextupolos do SI.
+            \item 13/11 (segunda) - órbita de referência, medida matriz resposta (já usamos a matriz AC), análise LOCO, correção de ótica e acoplamento, equalização dos BPMs.
+        \end{itemize}}
+    \end{minipage}
+    \begin{minipage}{0.58\textwidth}
+        \captionsetup[figure]{font=tiny}
+        \begin{figure}[H]
+        	\centering
+            \includegraphics[width=1\textwidth]{2023-11-17/figures/diff_to_bba_after_september23_shutdown.png}
+            \caption{\tiny{Diferença entres BBAs: novembro em relação ao de setembro. Variações grandes provavelmente devido a retirada de placas de BPMs durante a parada (informada previamente à recuperação pelo Augusto).}}
+            \label{fig:bba}
+        \end{figure}
+    \end{minipage}
+\end{frame}
+\begin{frame}{14-16/11 Recuperação de Máquina}
+    \begin{minipage}{0.45\textwidth}
+        \begin{itemize}
+        \scriptsize{
+            \item 14/11 (terça) 
+            \begin{itemize}
+            \scriptsize{
+                \item interlock ``sobre-corrente na carga'' em corretoras lentas (CH e CV) do mesmo bastidor 20C1 e 20C4. Troca do bastidor parece ter resolvido. 
+                \item tentativa de ajuste de LLRF para evitar instabilidade de feixe. Identificação de arco nos guias da SSA3;}
+            \end{itemize}
+            \item 15/11 (quarta) - conserto do SSA3 e recuperação de máquina. Feixe liberado para usuários às 20h.
+            \item 16/11 (quinta) - testes de vácuo na SABIÁ com campo do DELTA52 limitado a fase de 9 mm (Potência do EPU)}
+    	\end{itemize}
+    \end{minipage}
+    \begin{minipage}{0.53\textwidth}
+        \captionsetup[figure]{font=tiny}
+        \begin{figure}[H]
+        	\centering
+            \includegraphics[width=\textwidth]{2023-11-17/figures/beam_damping_times_vs_current.png}
+            \caption{\tiny{Damping times of mode-0 vs stored current in uniform filling.}}
+            \label{fig:llrf_damping}
+        \end{figure}
+    \end{minipage}
 \end{frame}
 
-\begin{frame}{Campo DELTA52 e Calibração do modelo}
+\begin{frame}{Perturbação NLK}
 \begin{itemize}
-        \item Campo integrado: modelo calibrado x medidas (antes)
-	\end{itemize}
-\begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{2023-10-27/figures/field_integrals_fitting.png}
-        \label{fig:integral_fitting}
-    \end{figure}
+\small{
+    \item NLK foi realinhado durante a parada para posição em que perturbação do pulso principal deveria ser nula. Agora as bobinas de compensação deveriam combater apenas campos de eddy currents
+    \item Não tivemos tempo para encontrar novos valores de amplitude e delay das bobinas de compensação, atualmente estamos com a config. anterior e a injeção não está transparente. 
+    \item Tabela feedforward DELTA e injeção transparente são prioridades para o estudo da próxima semana. 
+    }
+\end{itemize}
+    \begin{figure}[H]
+        	\centering
+            \includegraphics[width=0.6\textwidth]{2023-11-17/figures/injection_perturbation_after_november23_shutdown.png}
+            % \caption{Perturbação do NLK durante a injeção, antes (vermelho) e depois (azul) da parada.}
+            \label{fig:llrf_damping}
+        \end{figure}
 \end{frame}
 
-\begin{frame}{Calibração do modelo}
+\section{Atividades - DELTA52}
+
+\begin{frame}{DELTA52 - Medidas Oficiais}
     \begin{itemize}
-            \item Melhorias no cálculo do jacobiano (alinhamento de grids).
+            \item Medidas de mapas com sensor Hall e integrais de campo com fio esticado no plano e fora do plano.
     \end{itemize}
     \begin{figure}[H]
     		\centering
-            \includegraphics[width=.7\textwidth]{2023-10-27/figures/New_jacobian_test.png}
-            \caption{Variações de campo previstas pelos jacobianos e calculadas pelo modelo RADIA.}
-            \label{fig:jac_comparison}
+            \includegraphics[width=.8\textwidth]{2023-11-17/figures/id-delta-dgv-config-space.png}
+            \caption{Configurações mapeadas com sensor Hall.}
+            \label{fig:dynapt}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{DELTA52 - Medidas Oficiais}
+    \begin{itemize}
+            \item Medidas de mapas com sensor Hall e integrais de campo com fio esticado no plano e fora do plano.
+    \end{itemize}
+    \begin{figure}[H]
+    		\centering
+            \includegraphics[width=.8\textwidth]{2023-11-17/figures/delta52-fields.png}
+            \caption{Configurações mapeadas com sensor Hall.}
+            \label{fig:dynapt}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{DELTA52 - Análise de AD \href{https://cnpemcamp.sharepoint.com/:b:/s/FAC/EaZonslbB0pBja96L0moRwMBH7-Uh5Bat4ToycITMlczMA?e=2btWUd}{\beamergotobutton{Link para relatório}}}
+    \begin{itemize}
+            \item AD calculada com mapa de kick em y=0 (mapa de campo) e estendido.
+            \item Artefato de correção de cross-talk Bx/Bz sensor Hall
+    \end{itemize}
+    \begin{figure}[H]
+    		\centering
+            \includegraphics[width=.9\textwidth]{2023-11-17/figures/ad-n5.png}
+            \label{fig:dynapt}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{DELTA52 - Análise de AD \href{https://cnpemcamp.sharepoint.com/:b:/s/FAC/EaZonslbB0pBja96L0moRwMBH7-Uh5Bat4ToycITMlczMA?e=2btWUd}{\beamergotobutton{Link para relatório}}}
+    \begin{itemize}
+            \item AD calculada do N5 com mapa de kick a partir das integrais de fio esticado.
+    \end{itemize}
+    \begin{figure}[H]
+    		\centering
+            \includegraphics[width=.6\textwidth]{2023-11-17/figures/ad-n5-swire.png}
+            \label{fig:dynapt}
     \end{figure}
     \begin{itemize}
-            \item Fitting de erros de posição na calibração (trabalhando...)
+            \item Pessoal do IMA analisando os motivos deste artefato introduzido na correção do crosstalk.
     \end{itemize}
 \end{frame}
 
-\begin{frame}{DELTA52 - Impacto na máquina}
-\begin{itemize}
-        \item Simulações usando modelo RADIA calibrado e medidas de campo no plano.
-	\end{itemize}
-\begin{figure}[H]
-		\centering
-        \includegraphics[width=.8\textwidth]{2023-10-27/figures/dynapt_delta.png}
-        \caption{Impacto do Delta52 com magic fingers na abertura dinâmica.}
-        \label{fig:dynapt}
-    \end{figure}
+\begin{frame}{DELTA52 - Teste com campo/polarização}
+    \begin{itemize}
+            \item Limitado dGV (CSD) em 9mm : potência menor que do EPU em campo máximo.
+            \item Aumento gradativo de campo/potência, passos de 5\%.
+            \item LinH : 95\%, LinV : 85\%, CircN : 55\%, CircP : 45\%
+            \item Não houve nenhuma alteração significativa de pressão no FE do anel e nem na SABIÁ (Gustavo acompanhou).
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{DELTA52 - Medidas de integrais (setembro)}
-\begin{itemize}
-        \item Medidas de integrais de campo no eixo central do ID com magic fingers.
-	\end{itemize}
-\begin{figure}[H]
-		\centering
-        \includegraphics[width=1\textwidth]{2023-10-27/figures/field_integrals_config.png}
-        \caption{Integrais de campo normalizadas pela rigidez magnética para cada configuração do Delta52.}
-        \label{fig:integrals_config}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{DELTA52 - Medidas de integrais (outubro)}
-\begin{itemize}
-        \item Medidas de integrais de campo no eixo central do ID com magic fingers.
-	\end{itemize}
-\begin{figure}[H]
-		\centering
-        \includegraphics[width=1\textwidth]{2023-10-27/figures/field_integrals_config_new.png}
-        \caption{Integrais de campo normalizadas pela rigidez magnética para cada configuração do Delta52.}
-        \label{fig:integrals_config_new}
-    \end{figure}
-\end{frame}
-
-
-
-\section{Atividades - Estudo de colimador para IDs}
-
-\begin{frame}{Estudo de colimador para IDs}
-\begin{itemize}
-        \item Tracking do processo de perda por espalhamento Touschek (abertura física nominal).
-	\end{itemize}
-\begin{figure}[H]
-		\centering
-        \includegraphics[width=.75\textwidth]{2023-10-27/figures/scat_vc_lost.png}
-        % \caption{Comparação entre integrais de campo medidas e fornecidas pelo modelo calibrado.}
-        \label{fig:scat_loss}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Estudo de colimador para IDs}
-    \begin{figure}[H]
+\begin{frame}{DELTA52 - Teste com campo/polarização}
+    \begin{itemize}
+            \item Efeitos desprezíveis nos tamanhos, ângulo, e eficiência de injeção.
+            \begin{figure}[H]
     		\centering
-            \includegraphics[width=.9\textwidth]{2023-10-27/figures/lossrate_vs_lostpos.png}
-            % \caption{Comparação entre integrais de campo medidas e fornecidas pelo modelo calibrado.}
-            \label{fig:scat_loss}
+            \includegraphics[width=.7\textwidth]{2023-11-17/figures/CAX_beam_id_param.png}
+            \caption{Efeitos do DELTA no feixe observado na Carcará.}
+            \label{fig:cax_param}
+    \end{figure}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{DELTA52 - Teste com campo/polarização}
+            \begin{figure}[H]
+    		\centering
+            \includegraphics[width=1\textwidth]{2023-11-17/figures/inj_eff.png}
+            \caption{Efeitos do DELTA na eficiência de injeção.}
+            \label{fig:inj_eff}
     \end{figure}
 \end{frame}
 
-
-
-\section{Estudos de máquina - 09/10 Scrapers}
-
-\begin{frame}{09/10 Scrapers}
+\begin{frame}{DELTA52 - Teste com campo/polarização}
     \begin{itemize}
-		\item Uso do scraper para testar a ideia de colimadores de proteção para os IDs. 
-        \item Levantamos a relação entre eficiência de injeção e redução da aceitância física definida pelas fendas do scraper
-	\end{itemize}
+            \item Desvio de sintonia pequeno durante mudança de polarização, compatível com valores esperados.
+            \begin{figure}[H]
+    		\centering
+            \includegraphics[width=.7\textwidth]{2023-11-17/figures/tune_linh_linv.png}
+            \caption{Efeitos do DELTA na ótica linear}
+            \label{fig:linh_linv}
+        \end{figure}
+    \end{itemize}
+\end{frame}
+
+
+\section{Atividades - Janela de equalização dos BPMs}
+
+\begin{frame}{Janela de equalização do BPMs}
+    \begin{itemize}
+        \scriptsize
+        \item Antes a equalização era feita por um script que nem sempre funcionava devido ao desalinhamento temporal das aquisições trigadas. A compensação do impacto na órbita também não era feito de maneira sistemática (diferenças de órbitas).
+        \item Agora, criamos um método de identificação dos semiciclos: a equalização sempre funciona. A compensação do impacto na órbita é calculada exatamente a partir dos dados das antenas.
+    \end{itemize}
     \begin{figure}[H]
-		\centering
-        \includegraphics[width=.7\textwidth]{2023-10-27/figures/injeff-vs-vscrap.png}
-        \label{fig:vgap}
+   		\centering
+        \includegraphics[width=.48\textwidth]{
+            2023-11-17/figures/bpms_equalization_window.png}
+        \includegraphics[width=.48\textwidth]{2023-11-17/figures/bpms_gains.png}
+        \label{fig:bpmseq_window}
     \end{figure}
 \end{frame}
-
-
-
-\section{Estudos de máquina - 09/10 Calibração VGap}
-
-\begin{frame}{09/10 Calibração VGap}
-    \begin{itemize}
-		\item Continuação da medida frequência síncrotron vs. tensão de gap. Campos transversais dos IDs no mínimo e máximo (APUs, EPU e Wiggler)
-        \item IDs aumentam energia perdida por volta em 28keV (+6\%)
-	\end{itemize}
-    \begin{figure}[H]
-		\centering
-        \includegraphics[width=.7\textwidth]{2023-10-27/figures/sync_freq_vs_gap_voltage_ids_variation.png}
-        % \caption{}
-        \label{fig:vgap}
-    \end{figure}
-\end{frame}
-
-
-
-\section{Estudos de máquina - 16/10 Matriz Resposta AC}
-
-\begin{frame}{16/10 Matriz Resposta AC}
-    \scriptsize{
-    \begin{itemize}
-        \item Script compatibilizado com mudanças recentes nas classes de aquisição de BPMs e criação de métodos automáticos de checagem da validade dos dados medidos;
-        \item Mais corretoras atuando por aquisição, medidas mais rápidas (recorde de $\sim30$ segundos)
-        \item Novo procedimento de medida para coluna da RF: modulação de fase;
-        \item Teste de repetibilidade da medida sob diferentes valores dos parâmetros do script:
-	\end{itemize}}
-     \begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{2023-10-27/figures/meas_repetability.png}
-        \caption*{{\tiny Repetibilidade de cinco medidas para várias configurações diferentes de aquisição. A repetibilidade foi definida como desvio padrão médio de cada coluna divido pelo rms de cada coluna da matriz média.}}
-        \label{fig:figure1}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{16/10 Matriz Resposta AC}
-    \begin{itemize}
-        \item Estudos sobre os ajustes dos sinais dos coeficientes dos termos fora da diagonal;
-	\end{itemize}
-    \begin{figure}[H]
-		\centering
-        \includegraphics[width=.48\textwidth]{2023-10-27/figures/fitted_freqs.png}
-        \includegraphics[width=.48\textwidth]{2023-10-27/figures/phases_vs_amplitudes.png}
-        \caption*{{\footnotesize Esquerda: DFT de um BPM, mostrando as amplitudes fitadas. Direita: Phases fitadas versus amplitudes fitadas. Idealmente todas as fases deveriam ser 0 ou 1 e -1, mas para termos com pequenas amplitudes nota-se uma indeterminação da fase. Estamos estudando meios de ter mais certeza sobre esses termos}}
-        \label{fig:figure1}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{16/10 Matriz Resposta AC}
-    \begin{itemize}
-        \item correção de fatores de escala (figura)
-	\end{itemize}
-    \begin{figure}[H]
-		\centering
-        \includegraphics[width=.7\textwidth]{2023-10-27/figures/scale_factors.pdf}
-        \caption*{{\footnotesize Fatores de escala (razão entre std de cols ORM DC e std de cols ORM AC)}}
-        \label{fig:figure1}
-    \end{figure}
-\end{frame}
-
-
-
-\section{Estudos de máquina - 17/10 Ajuste da função dispersão}
-
-\begin{frame}{17/10 Ajuste da função dispersão}
-    \begin{itemize}
-		\item Correção de $\eta_y$ por desvio de órbita (vertical) nos sextupolos é equivalente a corrigir usando bobinas de quadrupolo skews nestes sextupolos.
-    \begin{figure}[H]
-		\centering
-        \includegraphics[width=.7\textwidth]{2023-10-27/figures/Orbit_Y_Offset_QS_versus_CV 1}
-        % \caption{Dispersão vertical antes e após correção.}
-        \label{fig:figure1}
-    \end{figure}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{17/10 Ajuste da função dispersão}
-    \begin{itemize}
-        \item Fizemos correção de $\eta_y$ com quad. skew dos sextupolos cromáticos (60 sgvs da matriz total).
-        \item Redução de um fator $\sim$~8 no pico-a-pico de $\eta_y$ residual
-    \begin{figure}[H]
-		\centering
-        \includegraphics[width=0.92\textwidth]{2023-10-27/figures/Vertical_dispersion_correction_with_CV_and_QS_methods_day17 1}
-        % \caption{Dispersão vertical antes e após correção.}
-        \label{fig:figure1}
-    \end{figure}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{17/10 Ajuste da função dispersão}
-    \begin{itemize}
-        \item Após a correção o acoplamento aumentou para algo em torno de 2\%.
-        \item Corrigimos acoplamento na respmat (medida AC) usando como botões LOCO os skews acromáticos. Acoplamento pelo modelo calibrado: $\sim$ 0.2\%.
-        \item Controlamos o acoplamento usando skews não dispersivos (padrão) observando o tamanho vertical na CAX. O ângulo aumentou de 0° para 4°.
-    \begin{figure}[H]
-		\centering
-        \includegraphics[width=.9\textwidth]{2023-10-27/figures/beam_view 1}
-        \label{fig:figure1}
-    \end{figure}
-	\end{itemize}
-\end{frame}
-
-
-
-\section{Estudos de máquina - 23/10 Estudos com a Carnaúba}
-
-\begin{frame}{23/10 Estudos com a Carnaúba}
-    \begin{itemize}
-        \item Medidas simultâneas com feixe de elétrons na sala de controle e feixe de fótons na linha de luz
-        \item Medidas na linha feitas com taxas de aquisição diferentes (2kHz e 2.5kHz), apenas algumas frequências no espectro mudaram, nenhuma das frequências relevantes foi afetada
-        \item Medidas com FOFB on e off. 60Hz é atenuado por fator 10 pelo FOFB, no anel e na linha. FOFB também atenua bem 15Hz, perceptível na linha. FOFB off + rampa ligada tem bastante efeito na linha, múltiplos de 2Hz.
-        \item Outras frequências com amplitude grande, 54Hz, 89Hz, (...) não são afetadas pelo FOFB. Indicativo de ser devido ao espelho
-	\end{itemize}
-\end{frame}
-
-
-
-
 
 \section{References}
-
 
 
 \end{document}
