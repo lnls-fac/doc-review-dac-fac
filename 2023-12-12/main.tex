@@ -51,188 +51,113 @@
 \end{frame}
 
 
-\section{Recuperação de Máquina - 10-16/11}
 
-\begin{frame}{10-13/11 Recuperação de Máquina}
-    \begin{minipage}{0.4\textwidth}
-        \scriptsize{
-        \begin{itemize}
-    		\item 10/11 (sexta) - subsistemas ligados, sem FOFB. Injeção de 100 mA, BBA em baixa corrente.
-            \item 11/11 (sábado) - algumas queda de feixe por RF na madrugada, falha Regatron de sextupolos do SI.
-            \item 13/11 (segunda) - órbita de referência, medida matriz resposta (já usamos a matriz AC), análise LOCO, correção de ótica e acoplamento, equalização dos BPMs.
-        \end{itemize}}
-    \end{minipage}
-    \begin{minipage}{0.58\textwidth}
-        \captionsetup[figure]{font=tiny}
-        \begin{figure}[H]
-        	\centering
-            \includegraphics[width=1\textwidth]{2023-12-12/figures/diff_to_bba_after_september23_shutdown.png}
-            \caption{\tiny{Diferença entres BBAs: novembro em relação ao de setembro. Variações grandes provavelmente devido a retirada de placas de BPMs durante a parada (informada previamente à recuperação pelo Augusto).}}
-            \label{fig:bba}
-        \end{figure}
-    \end{minipage}
-\end{frame}
-\begin{frame}{14-16/11 Recuperação de Máquina}
-    \begin{minipage}{0.45\textwidth}
-        \begin{itemize}
-        \scriptsize{
-            \item 14/11 (terça) 
-            \begin{itemize}
-            \scriptsize{
-                \item interlock ``sobre-corrente na carga'' em corretoras lentas (CH e CV) do mesmo bastidor 20C1 e 20C4. Troca do bastidor parece ter resolvido. 
-                \item tentativa de ajuste de LLRF para evitar instabilidade de feixe. Identificação de arco nos guias da SSA3;}
-            \end{itemize}
-            \item 15/11 (quarta) - conserto do SSA3 e recuperação de máquina. Feixe liberado para usuários às 20h.
-            \item 16/11 (quinta) - testes de vácuo na SABIÁ com campo do DELTA52 limitado a fase de 9 mm (Potência do EPU)}
-    	\end{itemize}
-    \end{minipage}
-    \begin{minipage}{0.53\textwidth}
-        \captionsetup[figure]{font=tiny}
-        \begin{figure}[H]
-        	\centering
-            \includegraphics[width=\textwidth]{2023-12-12/figures/beam_damping_times_vs_current.png}
-            \caption{\tiny{Damping times of mode-0 vs stored current in uniform filling.}}
-            \label{fig:llrf_damping1}
-        \end{figure}
-    \end{minipage}
-\end{frame}
+\section{Estudos com o DELTA52}
 
-\begin{frame}{Perturbação NLK}
-\begin{itemize}
-\small{
-    \item NLK foi realinhado durante a parada para posição em que perturbação do pulso principal deveria ser nula. Agora as bobinas de compensação deveriam combater apenas campos de eddy currents
-    \item Não tivemos tempo para encontrar novos valores de amplitude e delay das bobinas de compensação, atualmente estamos com a config. anterior e a injeção não está transparente. 
-    \item Tabela feedforward DELTA e injeção transparente são prioridades para o estudo da próxima semana. 
-    }
-\end{itemize}
-    \begin{figure}[H]
-        	\centering
-            \includegraphics[width=0.6\textwidth]{2023-12-12/figures/injection_perturbation_after_november23_shutdown.png}
-            % \caption{Perturbação do NLK durante a injeção, antes (vermelho) e depois (azul) da parada.}
-            \label{fig:llrf_damping2}
-        \end{figure}
-\end{frame}
-
-\section{Atividades - DELTA52}
-
-\begin{frame}{DELTA52 - Medidas Oficiais}
-    \begin{itemize}
-            \item Medidas de mapas com sensor Hall e integrais de campo com fio esticado no plano e fora do plano.
-    \end{itemize}
+\begin{frame}{DELTA52 - Caracterização e Correção}
     \begin{figure}[H]
     		\centering
             \includegraphics[width=.8\textwidth]{2023-12-12/figures/id-delta-dgv-config-space.png}
-            \caption{Configurações mapeadas com sensor Hall.}
+            \caption{Espaço de configuração do DELTA}
             \label{fig:delta-config-space}
     \end{figure}
 \end{frame}
 
-\begin{frame}{DELTA52 - Medidas Oficiais}
+\begin{frame}{DELTA52 - Caracterização e Correção}
     \begin{itemize}
-            \item Medidas de mapas com sensor Hall e integrais de campo com fio esticado no plano e fora do plano.
+    		\item Movimentação do DELTA provoca a) distorções de órbita, b) mudança de acomplamento, c) distorção das funções beta, d) mudança da abertura dinâmica, tempo de vida, tc.
+            \item Todos estes efeitos afetam a matriz resposta de órbita.
+            \item correção local com pares de CHs, CVs, QSs, trims QFB, QDB1 e QDB2.
     \end{itemize}
     \begin{figure}[H]
-    		\centering
-            \includegraphics[width=.8\textwidth]{2023-12-12/figures/delta52-fields.png}
-            \caption{Configurações mapeadas com sensor Hall.}
-            \label{fig:delta-int}
+        	\centering
+            \includegraphics[width=0.6\textwidth]{2023-12-12/figures/si-10sb-2.png}
+            \caption{\small{8 botões: 2 CHs, 2 CVs, 1 QS, QFB1, QFB, QDB2}}
+            \label{fig:bba}
     \end{figure}
 \end{frame}
 
-\begin{frame}{DELTA52 - Análise de AD \href{https://cnpemcamp.sharepoint.com/:b:/s/FAC/EaZonslbB0pBja96L0moRwMBH7-Uh5Bat4ToycITMlczMA?e=2btWUd}{\beamergotobutton{Link para relatório}}}
+
+\begin{frame}{DELTA52 - Caracterização e Correção}
     \begin{itemize}
-            \item AD calculada com mapa de kick em y=0 (mapa de campo) e estendido.
-            \item Artefato de correção de cross-talk Bx/Bz sensor Hall
+    		\item Corretoras fitadas (iteração 0)
     \end{itemize}
     \begin{figure}[H]
-    		\centering
-            \includegraphics[width=.9\textwidth]{2023-12-12/figures/ad-n5.png}
-            \label{fig:dynapt1}
-    \end{figure}
+        	\centering
+            \includegraphics[width=0.8\textwidth]{2023-12-12/figures/knobs-before.png}
+            % \caption{\small{No correction}}
+            \label{fig:bba}
+    \end{figure} 
 \end{frame}
 
-\begin{frame}{DELTA52 - Análise de AD \href{https://cnpemcamp.sharepoint.com/:b:/s/FAC/EaZonslbB0pBja96L0moRwMBH7-Uh5Bat4ToycITMlczMA?e=2btWUd}{\beamergotobutton{Link para relatório}}}
+
+\begin{frame}{DELTA52 - Caracterização e Correção}
     \begin{itemize}
-            \item AD calculada do N5 com mapa de kick a partir das integrais de fio esticado.
+    		\item Corretoras fitadas (iteração 1 de QS)
     \end{itemize}
     \begin{figure}[H]
-    		\centering
-            \includegraphics[width=.6\textwidth]{2023-12-12/figures/ad-n5-swire.png}
-            \label{fig:dynapt2}
-    \end{figure}
+        	\centering
+            \includegraphics[width=0.8\textwidth]{2023-12-12/figures/knobs-after.png}
+            % \caption{\small{No correction}}
+            \label{fig:bba}
+    \end{figure} 
+\end{frame}
+
+
+\begin{frame}{DELTA52 - Caracterização e Correção}
     \begin{itemize}
-            \item Pessoal do IMA analisando os motivos deste artefato introduzido na correção do crosstalk.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{DELTA52 - Teste com campo/polarização}
-    \begin{itemize}
-            \item Limitado dGV (CSD) em 9mm : potência menor que do EPU em campo máximo.
-            \item Aumento gradativo de campo/potência, passos de 5\%.
-            \item LinH : 95\%, LinV : 85\%, CircN : 55\%, CircP : 45\%
-            \item Não houve nenhuma alteração significativa de pressão no FE do anel e nem na SABIÁ (Gustavo acompanhou).
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{DELTA52 - Teste com campo/polarização}
-    \begin{itemize}
-            \item Efeitos desprezíveis nos tamanhos, ângulo, e eficiência de injeção.
-            \begin{figure}[H]
-    		\centering
-            \includegraphics[width=.7\textwidth]{2023-12-12/figures/CAX_beam_id_param.png}
-            \caption{Efeitos do DELTA no feixe observado na Carcará.}
-            \label{fig:cax_param}
-    \end{figure}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{DELTA52 - Teste com campo/polarização}
-            \begin{figure}[H]
-    		\centering
-            \includegraphics[width=1\textwidth]{2023-12-12/figures/inj_eff.png}
-            \caption{Efeitos do DELTA na eficiência de injeção.}
-            \label{fig:inj_eff}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{DELTA52 - Teste com campo/polarização}
-            \begin{figure}[H]
-    		\centering
-            \includegraphics[width=1\textwidth]{2023-12-12/figures/lifetime.png}
-            \caption{Efeitos do DELTA no tempo de vida.}
-            \label{fig:lifetime}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{DELTA52 - Teste com campo/polarização}
-    \begin{itemize}
-            \item Desvio de sintonia pequeno durante mudança de polarização, compatível com valores esperados.
-            \begin{figure}[H]
-    		\centering
-            \includegraphics[width=.7\textwidth]{2023-12-12/figures/tune_linh_linv.png}
-            \caption{Efeitos do DELTA na ótica linear}
-            \label{fig:linh_linv}
-        \end{figure}
-    \end{itemize}
-\end{frame}
-
-
-\section{Atividades - Janela de equalização dos BPMs}
-
-\begin{frame}{Janela de equalização do BPMs}
-    \begin{itemize}
-        \scriptsize
-        \item Antes a equalização era feita por um script que nem sempre funcionava devido ao desalinhamento temporal das aquisições trigadas. A compensação do impacto na órbita também não era feito de maneira sistemática (diferenças de órbitas).
-        \item Agora, criamos um método de identificação dos semiciclos: a equalização sempre funciona. A compensação do impacto na órbita é calculada exatamente a partir dos dados das antenas.
+    		\item Efeitos da correção na emitância
     \end{itemize}
     \begin{figure}[H]
-   		\centering
-        \includegraphics[width=.48\textwidth]{
-            2023-12-12/figures/bpms_equalization_window.png}
-        \includegraphics[width=.48\textwidth]{2023-12-12/figures/bpms_gains.png}
-        \label{fig:bpmseq_window}
-    \end{figure}
+        	\centering
+            \includegraphics[width=0.8\textwidth]{2023-12-12/figures/Vertical_emmitance.png}
+            % \caption{\small{No correction}}
+            \label{fig:bba}
+    \end{figure} 
 \end{frame}
+
+\begin{frame}{DELTA52 - Caracterização e Correção}
+    \begin{itemize}
+    		\item Efeitos da correção no acoplamento
+    \end{itemize}
+    \begin{figure}[H]
+        	\centering
+            \includegraphics[width=0.8\textwidth]{2023-12-12/figures/coupling.png}\\ 
+            
+            \includegraphics[width=0.8\textwidth]{2023-12-12/figures/Vertical_emmitance.png}
+            % \caption{\small{No correction}}
+            \label{fig:bba}
+    \end{figure} 
+\end{frame}
+
+
+\begin{frame}{DELTA52 - Caracterização e Correção}
+    \begin{itemize}
+    		\item Distorção de órbita e fitting de CHs e CVs
+    \end{itemize}
+    \begin{figure}[H]
+        	\centering
+            \includegraphics[width=0.8\textwidth]{2023-12-12/figures/cod-fit.png}
+            % \caption{\small{No correction}}
+            \label{fig:bba}
+    \end{figure} 
+\end{frame}
+
+\begin{frame}{DELTA52 - Feedforward}
+    \scriptsize{\begin{itemize}
+    		\item As tabelas de feedforward para QS, CH e CV estão medidas e implementadas
+            \item O loop está rodando a 10 Hz desde 2023-12-11 com a configuração $delta52\_ref$
+            \item A SABIÁ agora tem controle sobre as movimentações step do DELTA52.
+            \item FF de QDB1, QFB e QDB2 ?
+    \end{itemize}}
+    \begin{figure}[H]
+        	\centering
+            \includegraphics[width=0.8\textwidth]{2023-12-12/figures/idff.png}
+            % \caption{\small{No correction}}
+            \label{fig:bba}
+    \end{figure} 
+\end{frame}
+
 
 \section{References}
 
