@@ -51,31 +51,46 @@
 \end{frame}
 
 
-\section{Reotimização das bobinas de compensação do NLK}
+\section{PU em standby no Topup}
 
-\begin{frame}{NLK - Reotimização}
+\begin{frame}{PU em standby no Topup}
     \scriptsize{\begin{itemize}
-    		\item Estudo de máquina em 2023-11-20
-            \item Horizontal orb std (um): 23 (no opt), 7.7 (opt no interf),  5.5 (opt interf)
+            \item 50\% tensão, 100\% faltando 20s para injeção
+    		\item Em 2024-01-24 (quarta) habilitamos o standby dos PU
+            \item Eficiência de injeção no anel piorou, pequenos ajustes de tensão no NLK
+            \item Piora sensível na repetibilidade da eficiência (mas sem afetar a corrente do Feixe)
     \end{itemize}}
     \begin{figure}[H]
         	\centering
-            \includegraphics[width=0.8\textwidth]{2024-01-26/figures/horizontal_nlk_distortion_interference.png}
-            % \caption{horizontal STD (um): 23 (no opt), 7.7 (opt no interf),  5.5 (opt interf)}
-            \label{fig:bba}
+            \includegraphics[width=0.8\textwidth]{2024-01-26/figures/pu-standby.png}
+            \label{fig:pu-standby}
     \end{figure} 
 \end{frame}
 
-\begin{frame}{NLK - Reotimização}
+
+\section{NLK}
+
+\begin{frame}{NLK - kick horizontal}
     \scriptsize{\begin{itemize}
-    		\item Estudo de máquina em 2023-11-20
-            \item vertical orb std (um): 4.5 (no opt), 1.9 (opt no interf),  1.4 (opt interf)
+    		\item Feixe localizado
+            \item Varredura do pulso NLK om relação ao feixe
     \end{itemize}}
     \begin{figure}[H]
         	\centering
-            \includegraphics[width=0.8\textwidth]{2024-01-26/figures/vertical_nlk_distortion_interference.png}
-            % \caption{vertical STD (um): 4.5 (no opt), 1.9 (opt no interf),  1.4 (opt interf)}
-            \label{fig:bba}
+            \includegraphics[width=0.8\textwidth]{2024-01-26/figures/nlk_horizontal_kick_profile.png}
+            \label{fig:nlk-h-kick-profile}
+    \end{figure} 
+\end{frame}
+
+\begin{frame}{NLK - kick vertical}
+    \scriptsize{\begin{itemize}
+    		\item Feixe localizado
+            \item Varredura do pulso NLK om relação ao feixe
+    \end{itemize}}
+    \begin{figure}[H]
+        	\centering
+            \includegraphics[width=0.8\textwidth]{2024-01-26/figures/nlk_vertical_kick_profile.png}
+            \label{fig:nlk-v-kick-profile}
     \end{figure} 
 \end{frame}
 
@@ -107,7 +122,7 @@
 
 \begin{frame}{DELTA52 - Caracterização e Correção}
     \begin{itemize}
-    		\item Corretoras fitadas (iteração 0)
+    		\item Quadrupolos fitados (iteração 0)
     \end{itemize}
     \begin{figure}[H]
         	\centering
@@ -120,56 +135,72 @@
 
 \begin{frame}{DELTA52 - Caracterização e Correção}
     \begin{itemize}
-    		\item Corretoras fitadas (iteração 1 de QS)
+    		\item Efeitos da correção na emitância vertical (calculado modelo calibrado).
     \end{itemize}
     \begin{figure}[H]
         	\centering
-            \includegraphics[width=0.8\textwidth]{2024-01-26/figures/knobs-after.png}
-            % \caption{\small{No correction}}
-            \label{fig:bba}
+            \includegraphics[height=4.5cm, width=9cm]{2024-01-26/figures/quad_ffwd_emit_effect.png}\\ 
     \end{figure} 
 \end{frame}
 
 
 \begin{frame}{DELTA52 - Caracterização e Correção}
     \begin{itemize}
-    		\item Efeitos da correção no acoplamento e emitância vertical
+    		\item Efeitos da correção nos desvios de sintonia (medidos).
     \end{itemize}
     \begin{figure}[H]
         	\centering
-            \includegraphics[height=3.5cm, width=9cm]{2024-01-26/figures/coupling.png}\\ 
-            \includegraphics[height=3.5cm, width=9cm]{2024-01-26/figures/Vertical_emmitance.png}
-            % \caption{\small{No correction}}
-            \label{fig:bba}
+            \includegraphics[height=3.5cm, width=9cm]{2024-01-26/figures/loco_tunex_corr.png}\\ 
+            \includegraphics[height=3.5cm, width=9cm]{2024-01-26/figures/loco_tuney_corr.png}\\ 
     \end{figure} 
 \end{frame}
 
 
 \begin{frame}{DELTA52 - Caracterização e Correção}
     \begin{itemize}
-    		\item Distorção de órbita e fitting de CHs e CVs
+    		\item Quadrupolos fitados (iteração 1) "mesmas forças!"
     \end{itemize}
     \begin{figure}[H]
         	\centering
-            \includegraphics[width=0.9\textwidth]{2024-01-26/figures/orbcorr_ff.pdf}
+            \includegraphics[width=0.8\textwidth]{2024-01-26/figures/quads_stren_with_corr.png}
             % \caption{\small{No correction}}
             \label{fig:bba}
     \end{figure} 
 \end{frame}
 
-\begin{frame}{DELTA52 - Feedforward}
-    \scriptsize{\begin{itemize}
-    		\item As tabelas de feedforward para QS, CH e CV estão medidas e implementadas
-            \item O loop está rodando a 10 Hz desde 2023-12-11 com a configuração $delta52\_ref$
-            \item A SABIÁ agora tem controle sobre as movimentações step do DELTA52.
-            \item FF de QDB1, QFB e QDB2 ?
-    \end{itemize}}
+
+\begin{frame}{DELTA52 - Caracterização e Correção - 23/01}
+    \begin{itemize}
+            \item fitting local mas com algoritmo LOCO.
+    		\item Desvios de sintonia após correção (medidas):
+    \end{itemize}
     \begin{figure}[H]
         	\centering
-            \includegraphics[width=0.8\textwidth]{2024-01-26/figures/idff.png}
-            % \caption{\small{No correction}}
-            \label{fig:bba}
+            \includegraphics[height=3.5cm, width=6cm]{2024-01-26/figures/Tunex_after_loco_2401.png}\\ 
+            \includegraphics[height=3.5cm, width=6cm]{2024-01-26/figures/Tuney_after_loco_2401.png}\\ 
     \end{figure} 
+\end{frame}
+
+
+\begin{frame}{DELTA52 - Caracterização e Correção - 23/01}
+    \begin{itemize}
+    		\item Efeito da variação das matrizes resposta em função da corrente comprometeu o fitting. (10 mA vs 100 mA)
+    \end{itemize}
+    \begin{figure}[H]
+        	\centering
+            \includegraphics[height=7cm, width=9cm]{2024-01-26/figures/Matriz variation.png}\\ 
+    \end{figure} 
+\end{frame}
+
+
+\section{Conferências e Workshops}
+
+\begin{frame}{Conferências e Workshops}
+    \begin{itemize}
+            \item Low Emittance Rings 2024: "Perturbation sources and improvements of Sirius Beam Stability" (13/02-16/02 Genebra)
+            \item Bunch-by-Bunch Feedback Systems and Related Beam Dynamics (03/03-06/03 Karlsruhe)
+            \item Injectors for Storage Ring Based Light Sources: Apresentação entitulada: "Experience with the SIRIUS booster" (06/03-08/03 Karlsruhe)
+    \end{itemize}
 \end{frame}
 
 
