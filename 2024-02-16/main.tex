@@ -53,16 +53,16 @@
 
 
 
-\section{Instabilidades Transversais}
+\section{CBI Transversais}
 
-\begin{frame}{Instabilidades Transversais}
+\begin{frame}{CBI Transversais}
     \scriptsize{\begin{itemize}
             \item Estudo de máquina 29/01, BbB
     \end{itemize}}
     \begin{figure}[H]
         	\centering
-            \includegraphics[width=0.8\textwidth]{2024-02-16/figures/pu-standby.png}
-            \label{fig:pu-standby}
+            \includegraphics[width=1.0\textwidth]{2024-02-16/figures/cbi-transversais.png}
+            \label{fig:cbi-transversal}
     \end{figure} 
 \end{frame}
 
@@ -70,36 +70,18 @@
 
 \section{NLK}
 
-\begin{frame}{NLK - kick horizontal}
-    \scriptsize{\begin{itemize}
-    		\item Feixe localizado
-            \item Varredura do pulso NLK com relação ao feixe
-    \end{itemize}}
-    \begin{figure}[H]
-        	\centering
-            \includegraphics[width=0.8\textwidth]{2024-02-16/figures/nlk_horizontal_kick_profile.png}
-            \label{fig:nlk-h-kick-profile}
-    \end{figure} 
-\end{frame}
-
-\begin{frame}{NLK - kick vertical}
-    \scriptsize{\begin{itemize}
-    		\item Feixe localizado
-            \item Varredura do pulso NLK com relação ao feixe
-    \end{itemize}}
-    \begin{figure}[H]
-        	\centering
-            \includegraphics[width=0.8\textwidth]{2024-02-16/figures/nlk_vertical_kick_profile.png}
-            \label{fig:nlk-v-kick-profile}
-    \end{figure} 
-\end{frame}
-
-\begin{frame}{Comparativo da perturbação no centroide (BPM-01M2)}
-    \begin{figure}[H]
-        	\centering
-            \includegraphics[width=1.0\textwidth]{2024-02-16/figures/injection_perturbation_compare_x_2024.pdf}
-            \includegraphics[width=1.0\textwidth]{2024-02-16/figures/injection_perturbation_compare_y_2024.pdf}
-    \end{figure} 
+\begin{frame}{NLK}
+    Experimento:
+    \begin{itemize}
+    		\item Pulso H full-sine: otimização iterativa (delay, amp) $\rightarrow$ ficou pior que com pulso half-sine.
+            \item Retorno da eletrônica anterior das bobinas compensadoras
+            \item Re-otimização: H,V delays = (380, 0)*8 ns; H,V amps = (131, 65) V
+    \end{itemize}
+    Análise:
+    \begin{itemize}
+            \item otimização iterativa (delay, amp) $\rightarrow$ mínimo local
+            \item achamos que pert. do NLK com pulso H full-sin pode ser reduzida: {\color{red} mas amp maior necessária,  $\sim$ x2!}
+    \end{itemize}
 \end{frame}
 
 
@@ -107,14 +89,10 @@
 \section{Ótica do Booster}
 
 \begin{frame}{Ótica do Booster}
-    \begin{itemize}
-        \item Movimentação do DELTA provoca a) distorções de órbita, b) mudança de acomplamento, c) distorção das funções beta, d) mudança da abertura dinâmica, tempo de vida, tc.
-    \end{itemize}
     \begin{figure}[H]
     		\centering
-            \includegraphics[width=.8\textwidth]{2024-02-16/figures/id-delta-dgv-config-space.png}
-            \caption{Espaço de configuração do DELTA}
-            \label{fig:delta-config-space}
+            \includegraphics[width=1.1\textwidth]{2024-02-16/figures/bo-optics.png}
+            \label{fig:bo-optics}
     \end{figure}
 \end{frame}
 
