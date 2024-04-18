@@ -1,7 +1,7 @@
 % Latex template: mahmoud.s.fahmy@students.kasralainy.edu.eg
 % For more details: https://www.sharelatex.com/learn/Beamer
 
-\documentclass{beamer}					  % Document class
+\documentclass[1610]{beamer}					  % Document class
 
 \usepackage[portuguese]{babel}			  % Set language
 \usepackage[utf8x]{inputenc}			  % Set encoding
@@ -16,6 +16,14 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]
 \setbeamercovered{transparent}
+
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
 
 % Uncomment this to have the outline at the beginning of each section highlighted.
 %\AtBeginSection[]
@@ -50,109 +58,80 @@
   \tableofcontents
 \end{frame}
 
+% Machine studies in the period
 
+% 2024-03-11-FOFB-Acq
+% 2024-03-12-SI_llrf_study
+% 2024-03-19-SI_NLK
+% 2024-03-19-SI_bpms_equalization
+% 2024-03-22-SI_hla_problem
+% 2024-03-25-SI_FOFB_Study
+% 2024-03-25-SI_FOFB_respmat_alternatives
+% 2024-03-25-SI_llrf_study
+% 2024-03-25-SI_tune-tracking-sigmay-control
+% 2024-04-01-BO_beam_images_at_screens
+% 2024-04-01-SI_injection_collimation_with_scrapers
+% 2024-04-01-SI_orbit_stability_hydraulic_valve_10hz_problem
+% 2024-04-12-coldbox-orbit-acqs
+% 2024-04-16-SI-delta-optics-ffwd
+% 2024-04-16-SI_NLK
+% 2024-04-16-SI_boramp_effect_orbit_acq
 
+\section{Estudos com LLRF}
 
-% \section{CBI Transversais}
+\begin{frame}
+    \Huge{Estudos com LLRF}
+\end{frame}
 
-% \begin{frame}{CBI Transversais}
-%     \scriptsize{\begin{itemize}
-%             \item Estudo de máquina 29/01, BbB
-%     \end{itemize}}
-%     \begin{figure}[H]
-%         	\centering
-%             \includegraphics[width=1.0\textwidth]{2024-03-08/figures/cbi-transversais.png}
-%             \label{fig:cbi-transversal}
-%     \end{figure} 
-% \end{frame}
+\begin{frame}{Estudos de máquina}
+\begin{itemize}
+    \item 2024-03-12 $\to$ explorar parâmetros de controle, medidas para paper IPAC, crosstalk entre FOFB e LLRF observado
+    \item 2024-03-25 $\to$ explorar crosstalk entre FOFB e LLRF
+\end{itemize}
+\end{frame}
 
+\begin{frame}{}
+\centering
+\Wider[4em]{\includegraphics[scale=0.29]{2024-04-19/figures/crosstalk_llrf_fofb.png}}
+\end{frame}
 
+\section{Testes de controle de emitância com bunch-by-bunch}
 
-\section{NLK}
+\begin{frame}
+    \Huge{Testes de controle de emitância com bunch-by-bunch}
+\end{frame}
 
-\begin{frame}{NLK}
-    \vspace{0.2 cm}
-    \large{
-    Experimento 2024-02-20
-    \vspace{0.4 cm}
+\section{Testes de colimação de injeção com scrapers}
+
+\begin{frame}
+    \Huge{Testes de colimação de injeção com scrapers}
+\end{frame}
+
+\section{Estabilidade de órbita}
+
+\begin{frame}
+    \Huge{Estabilidade de órbita}
+\end{frame}
+
+\begin{frame}{O mistério em 10Hz}
+    
+\end{frame}
+
+\section{MAC Meeting}
+
+\begin{frame}
+    \Huge{MAC Meeting}
+\end{frame}
+
+\begin{frame}{Apresentações FAC}
+Entre 08 de Março
     \begin{itemize}
-            \item Minimizado o pulso de kick NLK+HCoil mas não a perturbação no feixe distribuído (centróide). \vspace{0.4 cm}
-            \item Fizemos varreduras de bumps no feixe e conseguimos minimizar a oscilação média dos pacotes a um nível comparável com o half-sine com bump de 100 um positivo (ou deslocamento para o centro do círculo do NLK de 100 um)
+        \item 03 - Beam Stability
+        \item 08 - Progress on Third Harmonic Cavities Studies
+        \item 13 - Injection System
+        \item 14 - Nonlinear Dynamics
     \end{itemize}
-    }
 \end{frame}
-
-
-\begin{frame}{NLK}
-    \vspace{0.2 cm}
-    Experimento 2024-02-20
-    \begin{columns}
-        \begin{column}{0.75\textwidth}
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=1\textwidth]{2024-04-19/figures/hcoil-compensation-scheme.png}
-                \label{fig:hcoil-distortion}
-            \end{figure}
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=1.0\textwidth]{2024-04-19/figures/hcoil-table.png} \hspace*{4cm}
-                \label{fig:hcoil-table}
-            \end{figure}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{NLK}
-    \vspace{0.2 cm}
-    \begin{itemize}
-            \item Kick do NLK no feixe localizado em função do atraso
-    \end{itemize}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=1\textwidth]{2024-04-19/figures/hcoil-kick.png}
-            \label{fig:hcoil-distortion}
-        \end{figure}
-\end{frame}
-
-
-\section{Rampa do Booster}
-
-\begin{frame}{Rampa do Booster}
-    \vspace{0.4 cm}
-    \large{
-    \begin{itemize}
-            \item BO flop $\rightarrow$ flip: correção da órbita ao longo de toda a rampa de energia também para o estado flop. (2024-02-27) \vspace{0.4cm}
-            \item Forças QD e QF do flop (sintonias corrigidas) aplicadas à rampa flip. (usuários 2024-02-29)
-    \end{itemize}
-    }
-    \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.7\textwidth]{2024-04-19/figures/boramp-kicks.png}
-            \label{fig:rampbo-kicks}
-    \end{figure}
-\end{frame}
-
-
-
-\section{Problemas Pendentes}
-
-\begin{frame}{Problemas Pendentes}
-    \vspace{0.4 cm}
-    \large{
-    \begin{itemize}
-            \item Injeção ruim com PUs em stand-by ($\rightarrow$ desligado) \vspace{0.5cm}
-            \item FB LLRF da P7Cav com $K_P$ e $K_I$ reduzidos. \vspace{0.5cm}
-            \item FB de Field Flatness da P7Cav desligado por problema com os sinais de potência das células 2 e 6. (algumas questões na interface de controle da RF)
-    \end{itemize}
-    }
-\end{frame}
-
-
-
-\section{References}
-
 
 
 \end{document}
