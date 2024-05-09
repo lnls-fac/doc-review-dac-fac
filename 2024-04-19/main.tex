@@ -1,7 +1,7 @@
 % Latex template: mahmoud.s.fahmy@students.kasralainy.edu.eg
 % For more details: https://www.sharelatex.com/learn/Beamer
 
-\documentclass[1610]{beamer}					  % Document class
+\documentclass[1611]{beamer}					  % Document class
 
 \usepackage[portuguese]{babel}			  % Set language
 \usepackage[utf8x]{inputenc}			  % Set encoding
@@ -90,7 +90,7 @@
     \item 2024-03-25 $\to$ explorar crosstalk entre FOFB e LLRF
 
     \item Parâmetros de operação atuais: \\
-    Ki = 8000, Kp = 755, Ph. Shifter: 111°
+    Ki = 8000, Kp = 155, Ph. Shifter: 111°
 \end{itemize}
 \end{frame}
 
@@ -250,6 +250,13 @@ O método de fitting não tem resolução para fitar as variações de KL induzi
 As variações das forças em geral são menores do que 0.02\%.
 \end{frame}
 
+\begin{frame}{Realinhamento NLK}
+Variação de 100$\mu$m na horizontal
+\centering
+\includegraphics[scale=0.6]{2024-04-19/figures/nlk_perturb.PNG}
+    
+\end{frame}
+
 \begin{frame}{Compensação NLK}
 \begin{itemize}
     \item Bastidor alterado para maior range de tensão. Antigo estava operando no máximo (200V setpoint sala de controle).
@@ -272,10 +279,25 @@ As variações das forças em geral são menores do que 0.02\%.
 \begin{frame}{Scan de amplitude (delay fixo)}
 \centering
     Rms da taxa ADC Swap em 1 BPM (09M2) (taxa sub-TbT)
+    \centering
     \includegraphics[width=0.8\textwidth]{2024-04-19/figures/voltage_scan_adcrate.png}
 
     Mínimo da distorção abaixo de 100V para esta temporização \\
     Ainda precisamos fazer scan de delay...
+\end{frame}
+
+\begin{frame}{Perturbação durante top-up}
+    Trecho reto CARNAUBA (06SB), $x$ beam size 20$\mu$m
+    \centering
+    \includegraphics[width=0.8\textwidth]{2024-04-19/figures/injection_perturbSI-06M2:DI-BPM.png}
+\end{frame}
+
+\begin{frame}{Perturbação durante top-up}
+    Trecho reto MANACÁ (09SA), $x$ beam size 65$\mu$m
+    \centering
+    \includegraphics[width=0.8\textwidth]{2024-04-19/figures/injection_perturbSI-09M2:DI-BPM.png}
+
+    Compensação está pior. Justifica voltar pro bastidor antigo logo? Podemos fazer mais estudos com feixe...
 \end{frame}
 
 
