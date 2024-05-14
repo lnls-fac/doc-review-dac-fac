@@ -1,7 +1,7 @@
 % Latex template: mahmoud.s.fahmy@students.kasralainy.edu.eg
 % For more details: https://www.sharelatex.com/learn/Beamer
 
-\documentclass[1611]{beamer}            % Document class
+\documentclass[aspectratio=169]{beamer}            % Document class
 
 \usepackage[portuguese]{babel}          % Set language
 \usepackage[utf8x]{inputenc}            % Set encoding
@@ -36,7 +36,8 @@
 \usepackage{graphicx}                   % For including figures
 \usepackage{booktabs}                   % For table rules
 \usepackage{hyperref}                   % For cross-referencing
-\usepackage{caption}                    % Allows more control over captions in figs and tables
+\usepackage{caption}        
+\usepackage{siunitx}% Allows more control over captions in figs and tables
 
 \title{Revisão de Atividades da FAC}	% Presentation title
 %\author{Author One}					% Presentation author
@@ -58,8 +59,9 @@
   \tableofcontents
 \end{frame}
 
-% Machine studies in the period
 
+% Machine studies in the period
+% =============================
 % 2024-04-22-SI_60hz_ff_orbit
 % 2024-04-22-SI_delta_tune_ffwd
 % 2024-04-22-SI_kickedbeam_tbt_acquisitions
@@ -74,254 +76,248 @@
 % 2024-05-06-SI_NLK
 
 
+
 %====================================================================
-\section{Feedforward para perturbação em 60 Hz}
+\section{Migração do shared/screens-iocs}
 
-\begin{frame}
-    \Huge{Feedforward para perturbação em 60 Hz}
-\end{frame}
+\begin{frame}{Migração do shared/screens-iocs}
 
-\begin{frame}{Estudos de máquina}
+{\footnotesize 
 \begin{itemize}
-    \item 2024-03-12 $\to$ explorar parâmetros de controle, medidas para paper IPAC, crosstalk entre FOFB e LLRF observado
-    \item 2024-03-25 $\to$ explorar crosstalk entre FOFB e LLRF
-
-    \item Parâmetros de operação atuais: \\
-    Ki = 8000, Kp = 155, Ph. Shifter: 111°
+    \setlength\itemsep{1em}
+    \item Em 9/04 Eduardo notificou que um volume dos desktops da sala de controle, que pertencem ao GlusterFS, já estava com 81\% de ocupação;
+    \item Iniciamos a atividade de migrar a pasta /shared para o Ibirá, acessando da sala de controle via partição montada NFS
+    \item De lá pra cá, falhas no NFS que afetaram o acesso tanto durante nossos testes quanto pelas linhas de luz!
+    \item Em 09/05 durante testes de cópia do conteúdo do /shared e configuração de permissões, junto à equipe do eduardo, observamos correlação entre nossos testes e problemas de acesso pelas linhas.
+    \item Interrompemos a atividade até que o grupo do Eduardo pudesse repensar como configurar permissões para a particularidade de usuário fora de domínio do sirius.
 \end{itemize}
+}
+        
 \end{frame}
 
-\begin{frame}{}
-\centering
-\Wider[4em]{\includegraphics[scale=0.29]{2024-05-10/figures/crosstalk_llrf_fofb.png}}
-\end{frame}
-
-%====================================================================
-\section{Testes de controle de emitância com bunch-by-bunch}
-
-\begin{frame}
-    \Huge{Testes de controle de emitância com bunch-by-bunch}
-\end{frame}
-
-\begin{frame}{}
-\small{Tune tracking com BbB. Drive feixe em sideband sincrotron à frequência bétatron vertical. Tamanho vertical ajustado de acordo com amplitude do drive. Tempo de vida também variou, significa que de fato o tamanho variou, não é apenas oscilação do centroide.}
-\centering
-\includegraphics[width=0.7\textwidth]{2024-05-10/figures/emittance_control.png}
-\end{frame}
 
 
 %====================================================================
-\section{Testes de colimação com scrapers}
+\section{Archiver}
 
-\begin{frame}
-    \Huge{Testes de colimação com scrapers}
-\end{frame}
+\begin{frame}{Archiver}
 
-\begin{frame}{Scraper vertical}
-    \centering
-    \includegraphics[width=0.5\textwidth]{2024-05-10/figures/Top.png}
-    \includegraphics[width=0.5\textwidth]{2024-05-10/figures/Bottom.png}
-    \\
-    \centering
-     Adjusted $\to$ Top: 2.5mm, Bottom: -1.25mm
-\end{frame}
-
-\begin{frame}{Scraper horizontal}
-    \centering
-    \includegraphics[width=0.48\textwidth]{2024-05-10/figures/Left.png}
-    \includegraphics[width=0.48\textwidth]{2024-05-10/figures/Right.png}
-
-     Adjusted $\to$ Left: 8.9mm, Right: -9.2mm
-\end{frame}
-
-\begin{frame}{Proteção contra erros de injeção}
-Scrapers posicionados em: top 2.5mm, -1.25mm bottom, 8.9mm left, -9.2mm right
+{\footnotesize 
 \begin{itemize}
-    \item  Erros $\theta_x <0$: até -0.5 mrad protege
-    \item Erros $\theta_x>0$: até 0.3mrad ou para scrapers abertos, perdas se concentram em torno dos trechos 12 ou 13
-    \item Erros $\theta_y<0$: não protege range -(0.3, 0.4) mrad
-    \item Erros $\theta_y>0$: range de (0.2, 0.4) mrad
-    
-    
-    \item Erros $x < 0$: protege relativamente no range de (0, -1.0) mm
-    \item Erros $x >0$: protege no range de (0, 1.0) mm
-    
-    \item Erros $y > 0$: protege em (0.5, 0.7) mm
+    \setlength\itemsep{1em}
+    \item Storage tem 64 Tb, 6 Tb disponíveis hoje ($\approx$ 3 meses sobreviva)
+    \item A DAP estuda comprar no futuro um novo sistema, separado do Ibirá.
+    \item Estratégia de contornar a questão: migrar os dados de < 2024 para o Ibirá, com acesso via Lustre.
+    \item Nos próximos dias serão feitos testes de acesso de leitura com archiver paralelo em um supermicro acessando via Lustre dados no Ibirá.
+    \item Se Ok, duas instâncias de archiver: uma salvando as PVs e acessando dados do ano e outra acessando dados antigos.
+    \item Num primeiro momento exige 2 viewers também, uma para cada archiver. Mas o código pode ser alterado eventualmente para escolher/mergear os dados dos dois archivers.
 \end{itemize}
-Subimos a corrente para 100 mA, scrapers nestas posições definidas, sem afetar o tempo de vida.
-
-Para operação voltamos os scrapers para máxima abertura.
+}
+        
 \end{frame}
 
-%====================================================================
-\section{Estabilidade de órbita}
-\begin{frame}
-    \Huge{Estabilidade de órbita}
-\end{frame}
-
-\begin{frame}{O mistério em 10Hz}
-2024-04/01: Medidas para MAC Meeting, novo pico em 10Hz
-\centering
-    \includegraphics[scale=0.3]{2024-05-10/figures/bpm_data_rate_facq_sofbstate_on_fofbstate_on_gain_0p052_rfline_off_llrf_ki_8000_kp_155_vert_orb_at_01M2.png}
-    \\
-Sinal convertido para áudio. Similar a um som de compressor
-\end{frame}
-
-\begin{frame}{Localização do efeito no trecho 10SB}
-\centering
-    \includegraphics[scale=0.25]{2024-05-10/figures/bpm_data_rate_fofb_sofbstate_off_fofbstate_off_gain_0p052_rfline_off_llrf_ki_8000_kp_155.png}
-
-Entrada no túnel, válvula com problema no trecho 10SB gerando vibração nas mangueiras e em todo berço. Resolvido problema com a válvula.
-\end{frame}
 
 
 %====================================================================
-\section{Estudos 2023-04-16}
+\section{FF de órbita para perturbação em 60 Hz}
 
-\begin{frame}{Estudos 2023-04-16}
+\begin{frame}{FF de órbita para perturbação em 60 Hz}
+
+\begin{itemize}
+    \setlength\itemsep{1em}
+    \item Estudos em 2024-04-22, 2024-04-29, 2024-05-06;
+    \item Prova de princípio foi feita: correção com corretoras 02M1 e 02M2.
+    \item Amortecimento dos 60/180/540 Hz por fatores maiores que 10;
+    \item Para cancelamento mais exato, iniciamos a medida da função de transferência das corretoras;
+    \item Ainda precisamos testar a funcionalidade de offset das waveforms (já implementada no IOC);
+    \item Precisamos mudar como operamos o SOFB para escrever as correções no offset das waveforms;
+    \item Parecisamos checar a necessidade de termos triggers mais rápidos que 2Hz para disparar as waveforms.
+\end{itemize}
+        
+\end{frame}
+
+
+
+%====================================================================
+\section{FF de órbita para perturbação do DELTA52}
+
+\begin{frame}{FF de órbita para perturbação do DELTA52}
+
+\begin{itemize}
+    \item Estudos em 2024-04-22, 2024-04-29
+\end{itemize}
+
+  \begin{figure}[ht]
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{2024-05-10/figures/Orbit_dist_FAcq.png}
+            \caption{Aquisições FAqc com e sem feedforward.}
+            \label{fig:a}
+        \end{minipage}
+        \hspace{0.5cm}
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{2024-05-10/figures/Orbit_dist_FAcq_bpm_disturb.png}
+            \caption{Variações rápidas de órbita durante a movimentação.}
+            \label{fig:b}
+        \end{minipage}
+    \end{figure}
+
+
+% \centering
+% \Wider[4em]{
+% \includegraphics[scale=0.29]{
+% 2024-05-10/figures/fig.png}}
+        
+\end{frame}
+
+
+
+%====================================================================
+\section{FF de sintonia para perturbação do DELTA52}
+
+\begin{frame}{FF de tune para perturbação do DELTA52}
+
+\begin{itemize}
+    \item Estudos em 2024-04-29
+\end{itemize}
+
+\centering
+\includegraphics[scale=0.4]{2024-05-10/figures/Tune_deviation.pdf}
+
+A variação das forças dos quadrupolos foi menor que $0.07 \%$
+\end{frame}
+
+
+
+%====================================================================
+\section{Função de transferência I-B das corretoras do DELTA52}
+
+\begin{frame}{Função de transferência I-B das corretoras do DELTA52}
+
+\begin{itemize}
+    \item Estudos em 2024-05-06
+    \item Medimos a função de transferência das corretoras.
+\end{itemize}
+
+\centering
+\includegraphics[scale=0.49]{2024-05-10/figures/transfer_function_delta_correctors.png}
+        
+\end{frame}
+
+
+
+%====================================================================
+\section{Compensação NLK}
+
+\begin{frame}{Compensação NLK}
+
+\begin{itemize}
+    \setlength\itemsep{1em}
+    \item Estudos em 2024-04-29, 2024-05-06; feito em paralelo a outros estudos
+    \item Fizemos varreduras de atraso e amplitude mais finas e sistemáticas, medindo oscilação na taxa ADCSwap. novos valores otimizados mas sem melhoras significativas.
+    \item 14/05 (terça) iremos fazer medidas na taxa TbT para reavaliar necessidade de novo realinhamento na parada de 20/05
+\end{itemize}
+
+% \centering
+% \Wider[4em]{
+% \includegraphics[scale=0.29]{
+% 2024-05-10/figures/fig.png}}
+        
+\end{frame}
+
+
+
+%====================================================================
+\section{Aquisições TbT}
+
+\begin{frame}{Aquisições TbT - Testes do script}
+%Script para automatizar a configuração do timing dos BPMs e pingers, forças dos pingers e realizar aquisição triggerada de dados volta-a-volta para analisar ótica linear, i.e., beta-beating e erros de fase nos BPMs (implementado), e energy-spread, tune-shifts e (talvez) emitâncias (ainda não implementados) 
+% \pause
     \begin{itemize}
-        \item Feedforward de ótica do Delta
-        \item Ajustes com nova eletrônica NLK (maior range de tensão)
-        \item Feedforward com corretoras do anel para compensar perturbação do Booster (múltiplos de 2Hz)
-        \item Bunch-cleaning com feedback positivo na vertical
+        \setlength\itemsep{1em}
+        \item 2024-22-04: primeiros testes, dificuldades na automatização da medida devido à rampa lenta dos pulsados e checagem do readback das forças.
+        % \pause
+        \item 2024-29-04: checagem do Mon das forças, aquisições bem sucedidas, falha em restaurar estado pré-medida (bug de código). 
+        \begin{itemize}
+            \item análise dos dados adquiridos indicavam algumas anomalias (próximo slide)
+        \end{itemize}
+        % \pause
+        \item 2024-06-05: script debugado, medida e restauração do estado inicial funcionando. 
+         \begin{itemize}
+            \item amplitudes ainda são menores do que o valor esperado (comparação com aquisições passadas)
+            \item aquisições e kicks no continuous não apresentam esse problema.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Aquisições TbT - ``Anomalia`` (29/04)}
+
+{\tiny Comparação PCA vs ICA, medida com anomalia (provavelmente de aquisição) (do erro de fase em escala separada) } 
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\textwidth]{2024-05-10/figures/beta_beat_PCA_050urad_kickh_290424.pdf}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\textwidth]{2024-05-10/figures/beta_beat_ICA_050urad_kickh_290424.pdf}
+    \end{figure}
+\end{frame}
+\begin{frame}{Aquisições TbT - (06/05)}
+
+{\tiny Comparação PCA de medida normal (06/05) vs ICA de medida anômala (29/04)}
+\begin{figure}
+        \centering
+        \includegraphics[width=0.75\textwidth]{2024-05-10/figures/beta_beat_PCA_100urad_kickh_060524.pdf}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\textwidth]{2024-05-10/figures/beta_beat_ICA_050urad_kickh_290424.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Aquisições TbT - TODO's}
+Análises
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item Barras de erro para $\Delta \beta/\beta$ e $\Delta \phi$
+        % \item ICA depende da identificação visual de modos senoidais e cossenoidais: ainda não-automatizado;
+        \item Estudo de sensitividade e robustez: ICA vs PCA 
+        \begin{itemize}
+            \item Sensitividade de $\Delta \beta / \beta$ e $\Delta \phi$ por $\Delta KL$
+            \item Robustez a ruido e fontes contaminantes no sinal TbT
+            \item Comparação com sensitividade e robustez do LOCO
+        \end{itemize}
+        \item Estudos com modelo sobre a viabilidade de usar essas ferramentas para um esquema de correção
+    \end{itemize}
+\vfill
+Medida
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item Entender o porquê das amplitudes menores do que esperadas 
     \end{itemize}
 \end{frame}
 
 
-%====================================================================
-\section{Feedforward de óptica do Delta}
-
-\begin{frame}{Medidas de matriz resposta}
-  \begin{figure}[ht]
-        \begin{minipage}[b]{0.45\linewidth}
-            \centering
-            \includegraphics[width=\textwidth]{2024-05-10/figures/repeatability.png}
-            \caption{Comparação do efeito do Delta na matriz resposta com repetibilidade da medida.}
-            \label{fig:a}
-        \end{minipage}
-        \hspace{0.5cm}
-        \begin{minipage}[b]{0.45\linewidth}
-            \centering
-            \includegraphics[width=\textwidth]{2024-05-10/figures/Matrix_diff.png}
-            \caption{Comparação entre efeito da variação de KL e efeito do Delta na matriz resposta.}
-            \label{fig:b}
-        \end{minipage}
-   \end{figure}
-O método de fitting não tem resolução para fitar as variações de KL induzidas. Resolução da medida é da ordem de 0.03 \%.
-\end{frame}
-
-\begin{frame}{Correção da variação de sintonia com quadrupolos locais}
-    \begin{figure}[ht]
-        \begin{minipage}[b]{0.45\linewidth}
-            \centering
-            \includegraphics[width=\textwidth]{2024-05-10/figures/tune_corr_model.png}
-            \caption{Correção das variações de sintonia usando modelo fitado.}
-            \label{fig:a}
-        \end{minipage}
-        \hspace{0.5cm}
-        \begin{minipage}[b]{0.45\linewidth}
-            \centering
-            \includegraphics[width=\textwidth]{2024-05-10/figures/Quad_stg.png}
-            \caption{Variação forças dos quadrupolos necessárias para correção.}
-            \label{fig:b}
-        \end{minipage}
-    \end{figure}
-As variações das forças em geral são menores do que 0.02\%.
-\end{frame}
-
-\begin{frame}{Realinhamento NLK}
-Variação de 100$\mu$m na horizontal
-\centering
-\includegraphics[scale=0.6]{2024-05-10/figures/nlk_perturb.PNG}
-    
-\end{frame}
-
-\begin{frame}{Compensação NLK}
-\begin{itemize}
-    \item Bastidor alterado para maior range de tensão. Antigo estava operando no máximo (200V setpoint sala de controle).
-    \item Ajuste do amplitude e delay para melhor reproduzir referência no osciloscópio \\
-    CoilH: Amp. 97V, DeltaDelay -0.12$\mu$s em relação ao NLK
-
-    \centering
-    \includegraphics[width=0.8\textwidth]{2024-05-10/figures/coilh_old_new.png}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Diferença da compensação}
-\centering
-    Neste BPM \\
-    media 1.6$\mu$m $\to$ 2.6$\mu$m\\
-    rms 19$\mu$m $\to$ 24$\mu$m
-    \includegraphics[width=0.8\textwidth]{2024-05-10/figures/nlk_and_coilh_old_new.png}
-\end{frame}
-
-\begin{frame}{Scan de amplitude (delay fixo)}
-\centering
-    Rms da taxa ADC Swap em 1 BPM (09M2) (taxa sub-TbT)
-    \centering
-    \includegraphics[width=0.8\textwidth]{2024-05-10/figures/voltage_scan_adcrate.png}
-
-    Mínimo da distorção abaixo de 100V para esta temporização \\
-    Ainda precisamos fazer scan de delay...
-\end{frame}
-
-\begin{frame}{Perturbação durante top-up}
-    Trecho reto CARNAUBA (06SB), $x$ beam size 20$\mu$m
-    \centering
-    \includegraphics[width=0.8\textwidth]{2024-05-10/figures/injection_perturbSI-06M2:DI-BPM.png}
-\end{frame}
-
-\begin{frame}{Perturbação durante top-up}
-    Trecho reto MANACÁ (09SA), $x$ beam size 65$\mu$m
-    \centering
-    \includegraphics[width=0.8\textwidth]{2024-05-10/figures/injection_perturbSI-09M2:DI-BPM.png}
-
-    Compensação está pior. Justifica voltar pro bastidor antigo logo? Podemos fazer mais estudos com feixe...
-\end{frame}
-
-
 
 %====================================================================
-\section{Correção de bump na órbita do Booster}
 
-\begin{frame}{Bump na órbita do booster}
-\vspace{0.5cm}
-\begin{itemize}
-    \item Bump na órbita horizontal;
-    \item Além do efeito de desvio de energia em função da variação de período de revolução, é invariante ao longo da rampa.
-\vspace{0.5cm}
-\end{itemize}
-\centering
-    \includegraphics[scale=0.5]{2024-05-10/figures/bo-orbit.png}
+\section{Estudo da correção da órbita do booster}
+
+\begin{frame}{Correção com deslocamento dos quadrupolos}
+    \begin{itemize}
+        \item Problemas com uso da classe de cálculo de matriz resposta;
+        \item Determinação da sequência de quadrupolos que melhor corrigem a órbita.
+    \end{itemize}
+    \begin{minipage}{\textwidth}
+        \includegraphics[width=0.5\linewidth]{2024-05-10/figures/qf_orbit_correction.png}
+        \includegraphics[width=0.5\linewidth]{2024-05-10/figures/qf_displacement.png}
+    \end{minipage}
+    Próximos passos
+    \begin{itemize}
+        \item Analisar o efeito de erros de offset de BPMs na órbita residual;
+        \item Análisar as medidas de campo dos dipolos instalados no booster.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Correção com kicks nos QFs}
-\vspace{0.5cm}
-\begin{itemize}
-    \item Estudo de adição de kicks nos QFs (deslocamentos)
-    \item Correção em idx = 220 ($\approx 0.85 GeV$)
-    \item "Best correctors": resíduo em função do número de QFs considerados na correção.
-\vspace{0.5cm}
-\end{itemize}
-\centering
-    \includegraphics[scale=0.5]{2024-05-10/figures/qfs-correction.png}
-\end{frame}
-
-\begin{frame}{Correção com kicks com 10 QFs}
-\vspace{0.5cm}
-\begin{itemize}
-    \item Resíduo maior em baixa energia
-\vspace{0.5cm}
-\end{itemize}
-\centering
-    \includegraphics[scale=0.5]{2024-05-10/figures/bo-cod-corr-ramp.png}
-\end{frame}
-
-\begin{frame}{Deslocamentos dos QFs}
-\vspace{0.5cm}
-\centering
-    \includegraphics[scale=0.5]{2024-05-10/figures/qfs-displacements.png}
-\end{frame}
-
-%====================================================================
 \end{document}
