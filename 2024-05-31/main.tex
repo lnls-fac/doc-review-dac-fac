@@ -134,6 +134,50 @@ Ruídos
 
 
 %====================================================================
+\section{Estimativa de corrente máxima}
+
+\begin{frame}{Estimativa de corrente máxima}
+
+{\footnotesize
+\begin{itemize}
+    % \setlength\itemsep{1em}
+    \item Estudo dia 2024-05-13
+\end{itemize}
+}
+% \begin{figure}[ht]
+%     \begin{minipage}[b]{0.45\linewidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{2024-05-31/figures/li-ict1.png}
+%         \caption{Calibration of LI ICT1.}
+%         \label{fig:a}
+%     \end{minipage}
+%     \hspace{0.5cm}
+%     \begin{minipage}[b]{0.45\linewidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{2024-05-31/figures/li-ict2.png}
+%         \caption{Calibration of LI ICT2.}
+%         \label{fig:b}
+%     \end{minipage}
+% \end{figure}
+\end{frame}
+
+
+
+%====================================================================
+\section{FF de órbita para perturbação em 60 Hz}
+
+\begin{frame}{FF de órbita para perturbação em 60 Hz}
+
+\begin{itemize}
+    \setlength\itemsep{1em}
+    \item Estudos em 2024-05-14
+\end{itemize}
+
+\end{frame}
+
+
+
+%====================================================================
 \section{Migração do shared/screens-iocs}
 
 \begin{frame}{Migração do shared/screens-iocs}
@@ -169,26 +213,6 @@ Ruídos
     \item Num primeiro momento exige 2 viewers também, uma para cada archiver. Mas o código pode ser alterado eventualmente para escolher/mergear os dados dos dois archivers.
 \end{itemize}
 }
-
-\end{frame}
-
-
-
-%====================================================================
-\section{FF de órbita para perturbação em 60 Hz}
-
-\begin{frame}{FF de órbita para perturbação em 60 Hz}
-
-\begin{itemize}
-    \setlength\itemsep{1em}
-    \item Estudos em 2024-04-22, 2024-04-29, 2024-05-06;
-    \item Prova de princípio foi feita: correção com corretoras 02M1 e 02M2.
-    \item Amortecimento dos 60/180/540 Hz por fatores maiores que 10;
-    \item Para cancelamento mais exato, iniciamos a medida da função de transferência das corretoras;
-    \item Ainda precisamos testar a funcionalidade de offset das waveforms (já implementada no IOC);
-    \item Precisamos mudar como operamos o SOFB para escrever as correções no offset das waveforms;
-    \item Parecisamos checar a necessidade de termos triggers mais rápidos que 2Hz para disparar as waveforms.
-\end{itemize}
 
 \end{frame}
 
