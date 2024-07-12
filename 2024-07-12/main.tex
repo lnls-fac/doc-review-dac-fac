@@ -1,0 +1,100 @@
+% Latex template: mahmoud.s.fahmy@students.kasralainy.edu.eg
+% For more details: https://www.sharelatex.com/learn/Beamer
+
+\documentclass[aspectratio=169]{beamer}            % Document class
+
+\usepackage[portuguese]{babel}          % Set language
+\usepackage[utf8x]{inputenc}            % Set encoding
+\usepackage{courier}
+\mode<presentation> {                   % Set options
+  \usetheme{default}                    % Set theme
+  \usecolortheme{default}               % Set colors
+  \usefonttheme{default}                % Set font theme
+  \setbeamertemplate{caption}[numbered]	% Set caption to be numbered
+}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamercovered{transparent}
+
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
+% Uncomment this to have the outline at the beginning of each section highlighted.
+%\AtBeginSection[]
+%{
+%  \begin{frame}{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+\usepackage{graphicx}                   % For including figures
+\usepackage{booktabs}                   % For table rules
+\usepackage{hyperref}                   % For cross-referencing
+\usepackage{caption}        
+\usepackage{siunitx}% Allows more control over captions in figs and tables
+
+
+\title{Revisão de Atividades da FAC}	% Presentation title
+%\author{Author One}					% Presentation author
+\institute{LNLS.DAC.FAC}				% Author affiliation
+\date{2024-05-31 -- 2024-07-12}			% Today's date	
+
+
+% Machine studies in the period
+% =============================
+
+% -- May
+% * 2024-05-13-SI_ICTs (ict-tests)
+% * 2024-05-13-SI_max_stored_current_estimate (maximum-beam-current-estimate)
+% * 2024-05-14-SI_60hz_ff_orbit (60hz-pertubration-ff)
+% * 2024-05-14-SI_NLK (nlk)
+% 2024-05-21-BO_ramp_orbcorr (boramp-orbit-correction)
+% 2024-05-21-SI_kickedbeam_tbt_acquisitions (tbt-acquisitions)
+% * 2024-05-21-SI_NLK (nlk)
+% * 2024-05-27-BO_injection_optimization (boinj-optimization)
+% 2024-05-28-SI_sofb_fofb_interaction
+% 2024-05-29-BO_orbit_ramp_acquisitions
+
+% -- June
+% * 2024-06-10-SI_bba (bba)
+% 2024-06-11-SI_kickedbeam_tbt_acquisitions (tbt-acquisitions)
+% * 2024-06-16-SI_bba_tests  (bba)
+% * 2024-06-17-SI_bba  (bba)
+% * 2024-06-18-BO_optimization (boorb_bumps)
+% 2024-06-18-SI_bpms_equalization
+% * 2024-06-24-BO_injector_characterization_and_optimization (li-characterization)
+% ! 2024-06-24-BO_orbit_monitoring
+% ! 2024-06-25-BO_orbit_monitoring
+% 2024-06-28-AS_vazamento-água-máscara-sabiá
+% * 2024-06-30-AS_machine_shutdown (mac-shutdown)
+
+% -- July
+% * 2024-07-01-SI_60hz_ff_orbit (60hz-pertubration-ff)
+% * 2024-07-01-SI_pyacal_tests (pyacal-tests)
+% * 2024-07-08-AS_machine-startup (mac-shutdown)
+
+
+\begin{document}
+
+\input{2024-07-12/titlepage}
+\input{2024-07-12/ict-tests}
+\input{2024-07-12/maximum-beam-current-estimate}
+\input{2024-07-12/60hz-perturbation-ff}
+\input{2024-07-12/tbt-acquisitions}
+\input{2024-07-12/nlk}
+% \input{2024-07-12/boramp-orbit-correction}
+\input{2024-07-12/boinj-optimization}
+\input{2024-07-12/bba}
+\input{2024-07-12/boorb-bumps}
+\input{2024-07-12/li-characterization}
+\input{2024-07-12/project-otavio}
+\input{2024-07-12/mac-shutdown}
+\input{2024-07-12/pyacal-tests}
+
+\end{document}
