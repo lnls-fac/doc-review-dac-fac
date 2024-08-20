@@ -1,0 +1,77 @@
+% Latex template: mahmoud.s.fahmy@students.kasralainy.edu.eg
+% For more details: https://www.sharelatex.com/learn/Beamer
+
+\documentclass[aspectratio=169]{beamer}            % Document class
+
+\usepackage[portuguese]{babel}          % Set language
+\usepackage[utf8x]{inputenc}            % Set encoding
+\usepackage{courier}
+\mode<presentation> {                   % Set options
+  \usetheme{default}                    % Set theme
+  \usecolortheme{default}               % Set colors
+  \usefonttheme{default}                % Set font theme
+  \setbeamertemplate{caption}[numbered]	% Set caption to be numbered
+}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamercovered{transparent}
+
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
+% Uncomment this to have the outline at the beginning of each section highlighted.
+%\AtBeginSection[]
+%{
+%  \begin{frame}{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+\usepackage{graphicx}                   % For including figures
+\usepackage{booktabs}                   % For table rules
+\usepackage{hyperref}                   % For cross-referencing
+\usepackage{caption}
+\usepackage{siunitx}% Allows more control over captions in figs and tables
+
+
+\title{Revisão de Atividades da FAC}	% Presentation title
+%\author{Author One}					% Presentation author
+\institute{LNLS.DAC.FAC}				% Author affiliation
+\date{2024-07-12 -- 2024-08-23}			% Today's date
+
+
+% Machine studies in the period
+% =============================
+
+% 2024-07-16-SI_60hz_ff_orbit
+% 2024-07-18-SI_bpm02C1_1_oscillations
+% 2024-07-22-AS_machine_characterization_screens_images
+% 2024-07-22-SI_acquisition_ORION_concrete
+% 2024-07-28-AS_machine-shutdown
+
+
+
+\begin{document}
+
+\input{2024-08-23/titlepage}
+\input{2024-08-23/machine-characterization}
+\input{2024-08-23/60hz-perturbation-ff}
+% \input{2024-08-23/maximum-beam-current-estimate}
+% \input{2024-08-23/tbt-acquisitions}
+% \input{2024-08-23/nlk}
+% \input{2024-07-12/boramp-orbit-correction}
+% \input{2024-07-12/boinj-optimization}
+% \input{2024-07-12/bba}
+% \input{2024-07-12/boorb-bumps}
+% \input{2024-07-12/li-characterization}
+% \input{2024-07-12/project-otavio}
+% \input{2024-07-12/mac-shutdown}
+% \input{2024-07-12/pyacal-tests}
+
+\end{document}
